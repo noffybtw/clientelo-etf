@@ -8,6 +8,7 @@
 | `03-attribution-fix-and-wrap-up.md` | The owner's checks of the Sheet and PostHog, the `guide_viewed` attribution bug and its fix, the live re-check, wrap-up. Only messages after export 02 are included. |
 | `04-final-cleanup.md` | Pre-submission cleanup: `.claude/` out of the repo, source labels per fund in the comparison cards, live check, and the cache-busting mistake in the deploy checks. Only messages after export 03 are included. |
 | `05-design-review.md` | The owner's design review and its implementation: new visual system, variant B fee bars, chip row, flat form band, contrast and Lighthouse checks, CLS fixes, stubbed funnel check, deploy check by file hash. Only messages after export 04 are included. |
+| `06-ads-and-ter-format.md` | Two leftovers before submission: both ad creatives re-rendered in the new look, TER shown with at least two decimals (tested), live check by file hash. Only messages after export 05 are included. |
 
 **How it was made.** This session ran in the Claude desktop app (Code tab). There, `/export` is not a command; it arrives as a chat message. The Claude Code CLI is installed on this machine, but this session was run in the desktop app, so its transcript was exported with the app's own Export.
 1. The transcript was exported with the app's own **Export** (a zip of JSONL files).
