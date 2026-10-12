@@ -27,3 +27,8 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
   - Do not send mail from the personal Gmail.
   - Turn on IP discarding.
   - Find a real Czech bank fund for the fee comparison instead of comparing 0.03 % vs 0.07 %.
+
+## 2026-10-12: Step 2 (build)
+- Calculator written test-first (node:test).
+  - My first "red" run failed for the wrong reason: a runner path bug on Windows, not the missing module. I noticed this, fixed the script, and re-ran red/green properly.
+- Explainer copy: I (the orchestrator) wrote a sentence with no source ("you don't have to deal with US forms") and removed it on self-review. Every remaining claim in the explainer links to a page that was opened in this session (EUR-Lex, LYNX, Saxo, ČNB, Fio).
