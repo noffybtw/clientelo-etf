@@ -23,7 +23,7 @@ A Czech mobile landing page for people who know VOO, SPY or QQQ from YouTube and
 | Guide shown right after the form | `public/pruvodce.html` |
 | Privacy page | `public/soukromi.html` |
 | Funnel analytics (PostHog EU, cookieless) | `public/js/track.js` |
-| Tests: calculator, validation, endpoint, ad copy ↔ data, page context | `test/` (`npm test`, 27 tests) |
+| Tests: calculator, validation, endpoint, ad copy ↔ data, hero bar scale, page context | `test/` (`npm test`, 28 tests) |
 
 ## Audience and offer
 
@@ -65,10 +65,13 @@ The ask is about the *next step* (how to actually buy), not about the data the v
 | 6 | "Why can't I buy VOO" explainer | Answers the sceptic and names the Fio exception: credibility over hype. |
 | 7 | Second CTA, disclaimer, sources | Catches late converters. The legal text is visible but stays out of the way. |
 
-**Design: "a bank statement, not a crypto ad"**
-- Paper background, dark ink, one deep green, rust only for costs.
-- A serif headline and tickers in monospace.
-- No gradients, no emoji icons, no hero-plus-three-cards layout.
+**Design** (reworked after the owner's design review, see `NOTES-ai.md`):
+- White page and system UI sans.
+- Ink `#111418` and secondary `#4a5360`. One accent, `#0b5cff`, only for interactive elements; `#c2410c` only for the bank-fund cost figure.
+- **Mobile hero:** a heavy 34 px headline, one scrollable row of ticker chips, and, in variant B, the ad's two fee figures as to-scale bars directly under the headline.
+- **Desktop:** two columns.
+- **Avoided:** cards, gradients, icons and motion beyond 150 ms colour transitions.
+- **Contrast:** every text colour passes WCAG AA. The email field border is `#7a838f` (3.8:1), because a field whose border is its only cue needs 3:1.
 
 ## Data and sources
 
@@ -136,6 +139,9 @@ To rebuild the insight:
 | `?v=a`, first deploy (Google Fonts) | 87 | 3.0 s | 3.0 s | 20 ms | 0 | 100 / 96 / 100 |
 | `?v=a`, self-hosted font + favicon | **98** | 1.0 s | **1.6 s** | 92 ms | 0 | 100 / 100 / 100 |
 | `?v=b`, self-hosted font + favicon | **99** | 0.86 s | **1.45 s** | 59 ms | 0 | 100 / 100 / 100 |
+| `?v=a`, after design review (system sans, no web font) | **100** | 1.0 s | **1.0 s** | 50 ms | 0 | 100 / 100 / 100 |
+| `?v=b`, after design review | **100** | 0.92 s | **0.94 s** | 48 ms | 0 | 100 / 100 / 100 |
+| `/pruvodce`, after design review | **100** | 0.85 s | 0.92 s | 33 ms | 0 | 100 / 100 / 50 (intentional `noindex`) |
 
 **Leads:** the Google Sheet owned by the page owner. One row per lead: time, email, consent and consent-text version, picked ETF, ad version, UTM parameters.
 

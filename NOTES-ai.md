@@ -68,3 +68,25 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
     - The stubbed submit still sent a fake `form_submitted` to PostHog, since only the Sheet was skipped. It is marked `utm_content=b_fees_stub`, and the README says to filter test traffic.
 - **Wrong deploy check (twice):** I polled the live site with `?r=<random>` to bypass the cache. Vercel's CDN ignores the query string for static files: the same `etag` and `age` came back with and without it. So I was reading a cached copy, and twice reported "not live" while the deploy was ready or nearly ready.
   - Fix: compare the `etag` and the file content, not the URL. With that, the label fix was confirmed live (`age: 0`, new `etag`).
+
+## 2026-10-12: Owner's design review
+- **The verdict:** the page "still looks like a default AI build and the first mobile screen doesn't sell". The owner gave nine ordered changes with hard constraints: no change to data, copy meaning, consent, form, A/B logic or event names; Lighthouse ≥ 95; WCAG AA. All nine were implemented (commits `c322645` to `0d7efb7`).
+- **Where I deviated, and why:**
+  - **Email field border:** `#7a838f` instead of `#d5dbe2`. The latter is 1.39:1, which fails WCAG 1.4.11 when the border is the field's only cue. Chips keep `#d5dbe2`, because their label and solid selected state carry the meaning.
+  - **Variant B hero order:** the bars sit directly under the h1 (point 3), so the 13 px line moves below the caption. In variant A it sits directly under the h1 (point 2).
+  - **Favicon:** recoloured to ink/white ("nothing else coloured").
+  - **Smooth scroll to the result:** made instant (no motion beyond colour transitions).
+- **My own slips during the review:**
+  - I added a new Czech sentence to the footer ("Zdroj je uveden u každého čísla") and removed it again: the constraint was "do not change the copy".
+  - A shell loop wrote all six screenshots to the same file because of bad quoting; I caught it and re-ran it.
+  - Headless Chrome at 390 px lays out wider than 390 (it has a minimum window width), which made the guide look cut off. A real 390 px viewport showed no overflow (widest element ends at 374 px). For 390 px I used the emulated pane; for 1440 px, headless Chrome.
+- **Regressions the redesign caused, caught by measuring rather than eyeballing:**
+  - The first Lighthouse run after the redesign scored 93 on `?v=a`, below the owner's 95, with CLS 0.158. The shorter hero had pulled `#why` into the first screen, where it moved when JS filled the comparison list.
+  - Then CLS 0.065 on `?v=b` (the h1 switched to the B text only when `app.js` ran) and 0.126 on `/pruvodce` (the fund box filled late).
+  - Fixed by reserving the list's space, swapping the B texts in an inline script before first paint, and reserving the guide's box. Result: 100 / 100 / 100, with CLS 0 everywhere.
+- **Funnel check without touching production:**
+  - Local test runs had previously sent fake events to the real PostHog project, so `track.js` now never loads PostHog on localhost.
+  - `/api/lead` was intercepted in the page, so no Sheet row was created.
+  - Result: all 8 funnel events and `guide_viewed` fired with unchanged names and properties (`ad_version=b`, UTM intact through the redirect), with 0 requests to PostHog.
+- **Deploy check:** confirmed by SHA-256 of 7 deployed files against the local build, plus fresh etags (`age: 2`). No query-string cache-buster, per the lesson above.
+- **Corrected sentence in `ai-log/README.md`:** it claimed the Claude Code CLI was not installed. My Step 0 check only looked for `claude` on this shell's PATH; the owner confirmed it is installed and the session was simply run in the desktop app.
