@@ -219,27 +219,29 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-// ---------- comparison cards ----------
+// ---------- comparison: one line per pair, details on tap ----------
 function renderPairs() {
   $('#pairs').innerHTML = data.pairs.map((p) => {
     const t = p.twin || p.proxy;
     const tt = val(t.xetra_ticker) || t.ticker;
-    const row = (label, a, b) => `<tr><th scope="row">${label}</th><td>${a}</td><td>${b}</td></tr>`;
+    const badge = p.twin ? (p.match === 'same_index' ? '<span class="badge">stejný index</span>' : '<span class="badge warn">podobný index</span>') : '<span class="badge warn">jen alternativa</span>';
+    const row = (label, a, b) => `<div class="d-row"><dt>${label}</dt><dd>${a}</dd><dd>${b}</dd></div>`;
     return `
-    <article class="pair">
-      <div class="pair-head"><div class="swap"><span class="from">${esc(p.us.ticker)}</span><span class="arrow">→</span><span class="to">${esc(tt)}</span></div>
-        ${p.twin ? (p.match === 'same_index' ? '<span class="badge">stejný index</span>' : '<span class="badge warn">podobný index</span>') : '<span class="badge warn">jen alternativa</span>'}</div>
-      <table>
-        <thead><tr><td></td><th scope="col">${esc(p.us.ticker)}</th><th scope="col">${esc(tt)}</th></tr></thead>
-        <tbody>
-          ${row('Index', esc(idx(p.us.index)), esc(idx(t.index)))}
-          ${row('TER', terPct(val(p.us.ter_pct)), terPct(val(t.ter_pct)))}
-          ${row('Výnosy', esc(dist(p.us.distribution)), esc(dist(t.distribution)))}
-          ${row('Burza', esc(String(val(p.us.exchange)).split('/')[0]), 'Xetra (' + esc(val(t.trading_currency_xetra) || 'EUR') + ')')}
-          ${row('Pro drobné investory v EU', 'většinou ne (chybí KID)', 'ano')}
-        </tbody>
-      </table>
+    <details class="pair">
+      <summary>
+        <span class="p-tick"><s>${esc(p.us.ticker)}</s><span class="arrow" aria-hidden="true">→</span><b>${esc(tt)}</b></span>
+        ${badge}
+        <span class="p-ter"><span class="p-ter-l">TER</span> ${terPct(val(p.us.ter_pct))} <span aria-hidden="true">→</span> <b>${terPct(val(t.ter_pct))}</b></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <dl class="p-body">
+        <div class="d-row d-head"><dt></dt><dd>${esc(p.us.ticker)}</dd><dd>${esc(tt)}</dd></div>
+        ${row('Index', esc(idx(p.us.index)), esc(idx(t.index)))}
+        ${row('Výnosy', esc(dist(p.us.distribution)), esc(dist(t.distribution)))}
+        ${row('Burza', esc(String(val(p.us.exchange)).split('/')[0]), 'Xetra (' + esc(val(t.trading_currency_xetra) || 'EUR') + ')')}
+        ${row('Pro drobné investory v EU', 'většinou ne (chybí KID)', 'ano')}
+      </dl>
       <p class="src">Zdroje: ${labelledSources([[p.us.ticker, p.us], [tt, t]])}</p>
-    </article>`;
+    </details>`;
   }).join('');
 }
