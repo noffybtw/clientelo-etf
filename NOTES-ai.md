@@ -43,3 +43,6 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
 - **Export:** the owner typed `/export ai-log/01-setup-and-build.md`. In the desktop Code tab that arrives as a chat message and does nothing, and I checked: `ai-log/` was still empty.
   - I used the app's Export tool instead and converted its JSONL to Markdown with a script in the repo.
   - Before committing, I scanned the output for secrets: none found.
+- **Wrong claim about the Apps Script scope:** my comment in `backend/apps-script.gs` said the OAuth scope was "limited to this spreadsheet". It was not. `SpreadsheetApp` asks for access to all of the owner's spreadsheets unless the script has the `/** @OnlyCurrentDoc */` annotation.
+  - The owner caught it in Google's consent screen and added the annotation; the repo file now has it too.
+  - Lesson: a security claim in a comment needs the same verification as a number on the page.

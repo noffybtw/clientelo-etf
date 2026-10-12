@@ -1,7 +1,10 @@
+/** @OnlyCurrentDoc */
 /**
  * Google Apps Script web app: appends one lead per row to the bound Sheet.
- * Deliberately has NO MailApp/GmailApp calls (DECISIONS.md D4), so its OAuth
- * scope is limited to this spreadsheet.
+ * Deliberately has NO MailApp/GmailApp calls (DECISIONS.md D4).
+ * The @OnlyCurrentDoc annotation above limits the OAuth scope to this one
+ * spreadsheet; without it, SpreadsheetApp asks for access to ALL the owner's
+ * spreadsheets.
  *
  * Setup (once):
  * 1. Create a Google Sheet "ETF dvojcata - leady", Extensions -> Apps Script, paste this file.
