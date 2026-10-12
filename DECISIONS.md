@@ -32,12 +32,12 @@ Where the task was unclear or research changed an assumption, the decision and t
 ## D7. Fee calculator compares against a real Czech bank fund
 - **Decision:** 0.03 % vs 0.07 % between twins is too small to carry an ad, so the calculator compares the twin's TER with a real Czech bank fund's KID costs (ongoing costs + entry fee).
 - **Rule:** if no fund can be sourced from its KID, the comparison is dropped after asking.
-
-## D8. Static site, no framework
-- **Decision:** plain HTML/CSS/JS plus one Vercel function.
-- **Why:** the visitor is on a phone, from an ad, for seconds; LCP matters more than developer convenience. The page has one interactive widget, which does not justify a framework.
 - **Chosen fund (2026-10-12):** ČSOB Akciový Amerika (KBC Equity Fund North America, Classic Shares CSOB CZK, ISIN BE6252265333).
   - **KID** dated 13 Feb 2026: ongoing costs 1.66 % p.a. and entry costs max 3.00 %; no exit fee, no performance fee.
   - **Why this fund:** sold in CZK by a top-3 bank, US/Canada equities, unhedged, and the KID is recent.
   - **Cost treatment:** the calculator uses ongoing costs vs TER. Transaction costs are excluded on both sides. The entry fee is used at its maximum, and the page says "až 3 %".
   - **Other funds checked:** six more CZK bank funds (Erste, ČSOB, Amundi/KB). They are listed in `data/bank_fund.json` → `why_this_fund`.
+
+## D8. Static site, no framework
+- **Decision:** plain HTML/CSS/JS plus one Vercel function.
+- **Why:** the visitor is on a phone, from an ad, for seconds; LCP matters more than developer convenience. The page has one interactive widget, which does not justify a framework.
