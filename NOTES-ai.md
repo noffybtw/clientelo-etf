@@ -66,3 +66,5 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
   - **Live re-check** after deploy `0e18491`: the guide event is correctly attributed.
     - My "not live after 6 min" was only a delay; the owner saw the deploy queued, and it went live shortly after.
     - The stubbed submit still sent a fake `form_submitted` to PostHog, since only the Sheet was skipped. It is marked `utm_content=b_fees_stub`, and the README says to filter test traffic.
+- **Wrong deploy check (twice):** I polled the live site with `?r=<random>` to bypass the cache. Vercel's CDN ignores the query string for static files: the same `etag` and `age` came back with and without it. So I was reading a cached copy, and twice reported "not live" while the deploy was ready or nearly ready.
+  - Fix: compare the `etag` and the file content, not the URL. With that, the label fix was confirmed live (`age: 0`, new `etag`).
