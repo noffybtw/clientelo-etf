@@ -143,6 +143,23 @@ button:disabled { opacity: .6; cursor: progress; }
 .cta-end p { margin: 0 0 6px; font-family: var(--serif); font-size: 1.2rem; }
 .cta-end .btn { background: var(--ink); color: var(--paper); }
 
+/* guide + privacy pages */
+.guide { padding-top: 20px; }
+.guide h2 { font-size: 1.25rem; margin-top: 1.6rem; }
+.guide ul { padding-left: 1.2rem; }
+.guide li { margin-bottom: 6px; }
+.your-fund { background: var(--card); border: 2px solid var(--green); border-radius: var(--r); padding: 14px 16px; margin: 0 0 8px; }
+.your-fund p { margin: 0 0 6px; }
+.your-fund .big { font-size: 1.35rem; font-weight: 700; color: var(--green); letter-spacing: .02em; }
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 0; }
+.steps > li { counter-increment: step; position: relative; padding: 4px 0 8px 46px; border-bottom: 1px dashed var(--line); }
+.steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: 1.45rem;
+  width: 32px; height: 32px; display: grid; place-items: center;
+  font: 700 1rem var(--mono); background: var(--ink); color: var(--paper); border-radius: 50%;
+}
+.steps h2 { margin-top: 1.4rem; }
+
 .foot { margin-top: 40px; padding-block: 20px 40px; border-top: 1px solid var(--line); font-size: .78rem; color: var(--muted); }
 
 /* desktop: wider hero, chips in one row */
