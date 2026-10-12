@@ -63,3 +63,6 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
     - The guide URL carries `v` and `utm_*` (not `fbclid`).
   - Verified in the browser with `/api/lead` stubbed in the page, so no extra Sheet row: `guide_viewed` came out with `ad_version=b`, `utm_source=test`, `utm_content=b_fees`.
   - Lesson: a default that silently fills in a measurement is worse than an explicit "unknown".
+  - **Live re-check** after deploy `0e18491`: the guide event is correctly attributed.
+    - My "not live after 6 min" was only a delay; the owner saw the deploy queued, and it went live shortly after.
+    - The stubbed submit still sent a fake `form_submitted` to PostHog, since only the Sheet was skipped. It is marked `utm_content=b_fees_stub`, and the README says to filter test traffic.

@@ -124,6 +124,10 @@ To rebuild the insight:
 - **Checked by the owner in the Sheet:** exactly one row (`clientelo-test@example.com`, consent TRUE, `qqq`, `b`, `test`), and no honeypot row.
 - **Checked by the owner in PostHog:** all seven funnel events arrived in order with `ad_version=b` and `utm_source=test`.
 - **Bug found by the owner:** `guide_viewed` on `/pruvodce` arrived as `ad_version=a` with no UTM. Fixed as described under "Ad version" above.
+  - **Fix verified on the live site** with `/api/lead` stubbed in the page, so no Sheet row was created: `guide_viewed` arrived with `ad_version=b`, `hero_variant=b`, `utm_source=test`, `utm_content=b_fees_stub`.
+- **Test traffic in PostHog:**
+  - The stubbed runs sent two fake `form_submitted` events, one live (`utm_content=b_fees_stub`) and one from localhost (`$host=localhost`).
+  - All test traffic has `utm_source=test` or `$host=localhost`. Exclude both in the funnel before reading real numbers.
 
 **Speed** (Lighthouse 12.8.2, mobile emulation, simulated slow 4G, live site, 12 Oct 2026):
 
