@@ -3,37 +3,34 @@
 <head>
 <meta charset="utf-8">
 <title>Ad A creative 1080x1350</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&display=block">
 <style>
+  /* Same visual system as the page: white, system sans, ink + muted, no accent colour needed here. */
   html, body { margin: 0; width: 1080px; height: 1350px; }
-  body { background: #f7f5f0; color: #15201b; font-family: system-ui, "Segoe UI", sans-serif; display: flex; flex-direction: column; padding: 90px 84px; box-sizing: border-box; }
-  .kicker { font-size: 30px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #1d5a44; margin: 0 0 28px; }
-  h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 84px; line-height: 1.06; letter-spacing: -0.01em; margin: 0 0 56px; text-wrap: balance; }
-  .card { background: #fff; border: 2px solid #d9d4c8; border-radius: 22px; padding: 48px 52px; }
-  .swap { display: flex; align-items: center; gap: 30px; font: 700 104px ui-monospace, Consolas, monospace; margin-bottom: 30px; }
-  .from { color: #59645e; text-decoration: line-through; text-decoration-thickness: 8px; }
-  .arrow { color: #59645e; font-weight: 400; font-size: 80px; }
-  .to { color: #1d5a44; }
-  table { width: 100%; border-collapse: collapse; font-size: 36px; }
-  th, td { padding: 20px 0; border-top: 3px dashed #d9d4c8; text-align: left; }
-  th { color: #59645e; font-weight: 400; }
+  body { background: #ffffff; color: #111418; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric: tabular-nums; display: flex; flex-direction: column; padding: 96px 84px; box-sizing: border-box; }
+  h1 { font-weight: 800; font-size: 92px; line-height: 1.04; letter-spacing: -0.025em; margin: 0 0 24px; text-wrap: balance; }
+  .meta { font-size: 32px; color: #4a5360; margin: 0 0 72px; }
+  .swap { display: flex; align-items: baseline; gap: 28px; font-weight: 800; font-size: 104px; letter-spacing: -0.01em; margin-bottom: 28px; }
+  .from { color: #4a5360; }
+  .arrow { color: #4a5360; font-weight: 400; font-size: 80px; }
+  table { width: 100%; border-collapse: collapse; font-size: 38px; }
+  th, td { padding: 26px 0; border-top: 2px solid #e3e7ec; text-align: left; }
+  tr:last-child th, tr:last-child td { border-bottom: 2px solid #e3e7ec; }
+  th { color: #4a5360; font-weight: 400; }
   td { font-weight: 700; text-align: right; }
-  .no { color: #9b3a1c; } .yes { color: #1d5a44; }
-  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; font-size: 30px; color: #59645e; }
-  .logo { font-weight: 800; color: #15201b; font-size: 38px; } .logo span { font-weight: 400; }
+  .no { color: #4a5360; font-weight: 400; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: baseline; font-size: 32px; color: #4a5360; }
+  .logo { font-weight: 800; color: #111418; font-size: 40px; } .logo span { font-weight: 400; }
 </style>
 </head>
 <body>
-  <p class="kicker">Pro investory z Česka</p>
   <h1>VOO u většiny brokerů nekoupíte. Jeho dvojče ano.</h1>
-  <div class="card">
-    <div class="swap"><span class="from">VOO</span><span class="arrow">→</span><span class="to">VUAA</span></div>
-    <table>
-      <tr><th>Index</th><td>S&amp;P 500 = S&amp;P 500</td></tr>
-      <tr><th>Koupíte z Česka</th><td><span class="no">většinou ne</span> / <span class="yes">ano</span></td></tr>
-      <tr><th>Roční poplatek</th><td>0,03 % / 0,07 %</td></tr>
-    </table>
-  </div>
+  <p class="meta">Pro investory z Česka</p>
+  <div class="swap"><span class="from">VOO</span><span class="arrow">→</span><span class="to">VUAA</span></div>
+  <table>
+    <tr><th>Index</th><td>S&amp;P 500 = S&amp;P 500</td></tr>
+    <tr><th>Koupíte z Česka</th><td><span class="no">většinou ne</span> / ano</td></tr>
+    <tr><th>Roční poplatek</th><td>0,03 % / 0,07 %</td></tr>
+  </table>
   <div class="foot"><span class="logo">ETF<span>dvojčata</span></span><span>+ SPY, QQQ, VT a další</span></div>
 </body>
 </html>

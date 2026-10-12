@@ -28,10 +28,10 @@
 
 [`ad-b.png`](ad-b.png), source: [`ad-b.html`](ad-b.html)
 
-**Concept:** two horizontal bars on paper background.
-- A long rust bar, "Bankovní fond 312 200 Kč".
-- A tiny green bar, "Indexové ETF 12 900 Kč".
-- Title: "Poplatky za 20 let při 3 000 Kč měsíčně"; footnote with the assumption.
+**Concept:** two horizontal bars on a white background, in the page's visual system (system sans at 800, no serif). The layout mirrors the `?v=b` hero.
+- A full-width bar in `#c2410c`, "Bankovní akciový fond 312 200 Kč". This orange is used only for the bank-fund figure and its bar.
+- A to-scale ink (`#111418`) bar, 4.13 % of the width, "Indexové ETF 12 900 Kč".
+- Label under the headline: "Poplatky za 20 let při 3 000 Kč měsíčně"; footnote with the assumption.
 - The visual gap between the bars is the whole message.
 
 ## Link
