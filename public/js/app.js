@@ -92,7 +92,7 @@ function showResult(id) {
   track('result_shown', { etf: id, twin: t.ticker, is_proxy: isProxy });
   bindCalc(t);
   showLead(id);
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  el.scrollIntoView({ block: 'start' }); // instant: no motion beyond colour transitions
 }
 
 function fmtDate(iso) {
