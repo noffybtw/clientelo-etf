@@ -160,6 +160,7 @@ button:disabled { opacity: .6; cursor: progress; }
 .compare, .why, .cta-end { margin-top: var(--gap); }
 .section-lead { color: var(--muted); margin: 0 0 8px; }
 .pairs { display: grid; }
+.pairs:empty { min-height: 100vh; }   /* filled by JS after data loads; keeps later sections below the fold so they cannot shift into view (CLS) */
 .pair { padding: 20px 0; border-top: 1px solid var(--rule); }
 .pair:last-child { border-bottom: 1px solid var(--rule); }
 .pair-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
