@@ -32,3 +32,9 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
 - Calculator written test-first (node:test).
   - My first "red" run failed for the wrong reason: a runner path bug on Windows, not the missing module. I noticed this, fixed the script, and re-ran red/green properly.
 - Explainer copy: I (the orchestrator) wrote a sentence with no source ("you don't have to deal with US forms") and removed it on self-review. Every remaining claim in the explainer links to a page that was opened in this session (EUR-Lex, LYNX, Saxo, ČNB, Fio).
+- **Bank fund research (subagent):** opened 7 KID PDFs. The orchestrator re-downloaded the chosen KID straight from KBC's server and extracted the text with its own pypdf script, without reusing the agent's extraction. The cost lines matched: 1,66 %, Max. 3,00 %, no exit fee, no performance fee.
+  - The agent reported a possible stray click in a browser tab another agent had opened (shared browser pane). Lesson: parallel agents should not share one browser.
+- **Tax rules in the guide:**
+  - Web search gave conflicting paragraph letters for the time test (w vs u).
+  - The law text on zakonyprolidi.cz, in the version valid from 1. 8. 2026, says písm. t) for the 100 000 Kč limit and písm. u) for the 3-year test.
+  - The fetch tool's paraphrase of písm. u) was wrong: it said the exemption does NOT apply after 3 years. The page uses the law's wording, not the tool's paraphrase.

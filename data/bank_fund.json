@@ -1,0 +1,45 @@
+{
+  "id": "csob-akciovy-amerika",
+  "name": "ČSOB Akciový Amerika (KBC Equity Fund North America, Classic Shares CSOB CZK)",
+  "short_name": "ČSOB Akciový Amerika",
+  "isin": {
+    "value": "BE6252265333",
+    "as_of": "2026-02-13",
+    "source_url": "https://multimediafiles.kbcgroup.eu/ng/feed/am/funds/KID/KID_BE6252265333_CS.PDF",
+    "source_name": "KBC AM (KID)",
+    "verified": true
+  },
+  "invests_in": {
+    "value": "Min. 75 % akcie firem z USA a Kanady, aktivně spravován s odkazem na MSCI North America; měnové riziko nezajištěno",
+    "as_of": "2026-02-13",
+    "source_url": "https://multimediafiles.kbcgroup.eu/ng/feed/am/funds/KID/KID_BE6252265333_CS.PDF",
+    "source_name": "KBC AM (KID)",
+    "verified": true
+  },
+  "ongoing_pct": {
+    "value": 1.66,
+    "as_of": "2026-02-13",
+    "source_url": "https://multimediafiles.kbcgroup.eu/ng/feed/am/funds/KID/KID_BE6252265333_CS.PDF",
+    "source_name": "KBC AM (KID)",
+    "verified": true,
+    "note": "KID quote: 'Poplatky za správu a jiné správní nebo provozní náklady 1,66% hodnoty Vaší investice za rok.' Transaction costs 0.32 % p.a. are excluded, same as for ETFs (TER excludes transaction costs)."
+  },
+  "entry_pct": {
+    "value": 3.0,
+    "as_of": "2026-02-13",
+    "source_url": "https://multimediafiles.kbcgroup.eu/ng/feed/am/funds/KID/KID_BE6252265333_CS.PDF",
+    "source_name": "KBC AM (KID)",
+    "verified": true,
+    "note": "KID quote: 'Náklady na vstup Max. 3,00%'. It is a maximum; the distributor may charge less."
+  },
+  "exit_pct": {
+    "value": 0,
+    "as_of": "2026-02-13",
+    "source_url": "https://multimediafiles.kbcgroup.eu/ng/feed/am/funds/KID/KID_BE6252265333_CS.PDF",
+    "source_name": "KBC AM (KID)",
+    "verified": true,
+    "note": "'U tohoto produktu neúčtujeme žádný výstupní poplatek.'"
+  },
+  "fund_page": "https://www.csob.cz/lide/investicni-produkty/nabidka-investic/detail/isin/BE6252265333/1",
+  "why_this_fund": "Sold directly in CZK by a top-3 Czech bank, US/Canada equities close to MSCI North America, unhedged like an S&P 500 ETF bought in EUR, recent KID, no performance fee. Other candidates checked: Erste Responsible Stock America (1.39 % + max 5 % entry), Amundi US Pioneer A CZK Hgd (1.78 % + max 4.5 % + performance fee)."
+}

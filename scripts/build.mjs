@@ -3,6 +3,7 @@
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 
 const data = JSON.parse(readFileSync('data/etfs.json', 'utf8'));
+data.bank_fund = JSON.parse(readFileSync('data/bank_fund.json', 'utf8'));
 
 const missing = [];
 const walk = (o, path) => {
