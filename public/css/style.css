@@ -1,6 +1,8 @@
 /* Direction 1 "Účet": app-like light. Grey canvas, white surfaces, Onest 500/800,
    ink black for action, green = ETF money kept, coral = bank cost.
-   Contrast: ink 17.9, muted #555c68 6.4 on canvas, green #087a4b 5.3, coral #c4321f 5.2. */
+   Contrast: ink 17.9, muted #555c68 6.4 on canvas, green #087a4b 5.3, coral #c4321f 5.2.
+   Ported from the approved v3 mockup unchanged except two AA fixes: struck ticker/arrow
+   #9aa0aa (2.6:1) -> #6b7280 (4.8:1); select border on the dark band #4a515d (2.1:1) -> #7a818c (4.3:1). */
 @font-face { font-family: Onest; src: url(/fonts/on500.woff2) format("woff2"); font-weight: 400 600; font-display: swap; }
 @font-face { font-family: Onest; src: url(/fonts/on800.woff2) format("woff2"); font-weight: 700 900; font-display: swap; }
 :root {
@@ -69,8 +71,8 @@ h1 { font-size: 36px; line-height: 1.02; letter-spacing: -0.045em; font-weight: 
 /* result */
 .result { margin-top: 32px; background: var(--card); border-radius: var(--r); box-shadow: var(--lift); padding: 20px 18px 0; overflow: hidden; }
 .swap { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 32px; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
-.swap .from { color: #9aa0aa; text-decoration: line-through 2px; }
-.swap .arrow { color: #9aa0aa; font-weight: 500; font-size: .7em; }
+.swap .from { color: #6b7280; text-decoration: line-through 2px; }
+.swap .arrow { color: #6b7280; font-weight: 500; font-size: .7em; }
 .swap .to { color: var(--ink); }
 .twin-name { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
 .badge { display: inline-block; font-size: 12px; font-weight: 600; color: var(--green); background: var(--green-soft); padding: 3px 9px; border-radius: 99px; white-space: nowrap; vertical-align: 1px; }
@@ -102,7 +104,7 @@ h1 { font-size: 36px; line-height: 1.02; letter-spacing: -0.045em; font-weight: 
 .verdict b { color: #5fe0a3; }
 .assume { font-size: 12.5px; color: #b9bec8; margin: 0; }
 .assume a { color: #fff; }
-.assume select { font: inherit; font-weight: 700; font-size: 15px; min-height: 44px; padding: 0 8px; margin: 0 2px; border: 1px solid #4a515d; border-radius: 10px; background: #1a1e25; color: #fff; }
+.assume select { font: inherit; font-weight: 700; font-size: 15px; min-height: 44px; padding: 0 8px; margin: 0 2px; border: 1px solid #7a818c; border-radius: 10px; background: #1a1e25; color: #fff; }
 
 /* lead form */
 .lead-box { margin-top: 12px; background: var(--card); border-radius: var(--r); box-shadow: var(--lift); padding: 22px 18px; }
@@ -133,8 +135,8 @@ button:disabled { opacity: .6; cursor: progress; }
 .pair summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; grid-template-areas: "t b" "ter c"; align-items: center; gap: 6px 12px; padding: 16px 18px; min-height: 76px; }
 .pair summary::-webkit-details-marker { display: none; }
 .p-tick { grid-area: t; display: flex; align-items: center; gap: 8px; font-size: 20px; letter-spacing: -0.03em; font-weight: 800; }
-.p-tick s { color: #9aa0aa; font-weight: 700; text-decoration-thickness: 2px; }
-.p-tick .arrow { color: #9aa0aa; font-weight: 500; font-size: 15px; }
+.p-tick s { color: #6b7280; font-weight: 700; text-decoration-thickness: 2px; }
+.p-tick .arrow { color: #6b7280; font-weight: 500; font-size: 15px; }
 .pair summary .badge { grid-area: b; justify-self: end; }
 .p-ter { grid-area: ter; font-size: 14px; color: var(--muted); }
 .p-ter b { color: var(--ink); }
@@ -170,6 +172,7 @@ button:disabled { opacity: .6; cursor: progress; }
 .steps { list-style: none; counter-reset: step; padding: 0; margin: 0; display: grid; gap: 8px; }
 .steps > li { counter-increment: step; position: relative; padding: 14px 16px 14px 60px; background: var(--card); border-radius: var(--r-s); max-width: 70ch; }
 .steps > li::before { content: counter(step); position: absolute; left: 16px; top: 16px; width: 30px; height: 30px; display: grid; place-items: center; font: 800 15px var(--sans); background: var(--ink); color: #fff; border-radius: 50%; }
+.steps h2 { margin-top: 0; }   /* port fix: .guide h2's 28px top margin pushed each step title below its number */
 
 @media (min-width: 960px) {
   :root { --gap: 88px; --pad: 32px; }
