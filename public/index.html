@@ -50,6 +50,8 @@
       <p class="hint">Výsledek hned, bez registrace.</p>
     </fieldset>
   </section>
+  <!-- swap the ?v=b texts before first paint (same rule as context.js; app.js repeats it harmlessly) -->
+  <script>if (document.documentElement.dataset.hero === 'b') for (const el of document.querySelectorAll('#hero [data-v-b]')) el.innerHTML = el.dataset.vB;</script>
 
   <!-- 2+3. RESULT + CALCULATOR: rendered by app.js after a chip is picked -->
   <section class="result" id="result" hidden aria-live="polite"></section>

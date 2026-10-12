@@ -186,6 +186,7 @@ button:disabled { opacity: .6; cursor: progress; }
 .guide h2 { font-size: 20px; margin-top: 28px; }
 .guide ul { padding-left: 1.2rem; }
 .guide li { margin-bottom: 6px; }
+:root[data-fund] .fund-slot { min-height: 177px; }   /* box is filled by JS; reserve its height (157px + margins at 390px) */
 .your-fund { border-left: 3px solid var(--ink); padding: 4px 0 4px 16px; margin: 8px 0 12px; }
 .your-fund p { margin: 0 0 6px; }
 .your-fund .big { font-size: 22px; font-weight: 800; letter-spacing: .02em; }
@@ -214,6 +215,7 @@ button:disabled { opacity: .6; cursor: progress; }
   .pairs { grid-template-columns: 1fr 1fr; column-gap: 64px; }
   .pair:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
   .cta-end .btn { width: auto; display: inline-grid; padding: 0 32px; }
+  :root[data-fund] .fund-slot { min-height: 153px; }
 }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
