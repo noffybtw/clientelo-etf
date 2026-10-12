@@ -171,3 +171,5 @@ button:disabled { opacity: .6; cursor: progress; }
   .pairs { grid-template-columns: 1fr 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+.cost-bank { color: var(--rust); white-space: nowrap; }
+.cost-etf { color: var(--green); white-space: nowrap; }
