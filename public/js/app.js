@@ -6,8 +6,20 @@ const val = (f) => (f && f.value != null ? f.value : null);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const kc = (n) => new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 0 }).format(Math.round(n / 100) * 100) + ' Kč';
 const pct = (n) => String(n).replace('.', ',') + ' %';
-const DIST = { Accumulating: 'reinvestuje (akumulační)', Distributing: 'vyplácí (distribuční)' };
-const dist = (f) => DIST[val(f)] || val(f) || '–';
+const dist = (f) => {
+  const v = String(val(f) || '');
+  if (v.startsWith('Accumulating')) return 'reinvestuje (akumulační)';
+  if (v.startsWith('Distributing')) return v.includes('quarterly') ? 'vyplácí čtvrtletně' : 'vyplácí (distribuční)';
+  return v || '–';
+};
+const idx = (f) => String(val(f) || '–').replace(/ Index$/, '');
+// "USD 88.97 bn (fund total; ...)" -> "88,97 mld. USD (celý fond)"
+const size = (f) => {
+  const m = /USD ([\d.]+) bn/.exec(val(f) || '');
+  if (!m) return '–';
+  const d = f.as_of ? `, k ${fmtDate(f.as_of)}` : '';
+  return `${m[1].replace('.', ',')} mld. USD (celý fond${d})`;
+};
 
 let data = null;
 let current = null;
@@ -61,11 +73,11 @@ function showResult(id) {
     <p class="twin-name">${esc(val(t.name))} ${badge}</p>
     ${isProxy ? `<p class="note">${esc(p.us.ticker)} sleduje ${esc(val(p.us.index))}. Evropský fond se stejným indexem neexistuje. Nejbližší dividendová alternativa je níže, ale je to jiný fond.</p>` : ''}
     <ul class="rows">
-      <li><span>Index</span><span>${esc(val(t.index))}</span></li>
+      <li><span>Index</span><span>${esc(idx(t.index))}</span></li>
       <li><span>Roční poplatek (TER)</span><span>${pct(val(t.ter_pct))}</span></li>
       <li><span>Výnosy</span><span>${esc(dist(t.distribution))}</span></li>
       <li><span>Kde koupit</span><span>Xetra, v ${esc(val(t.trading_currency_xetra) || 'EUR')}</span></li>
-      <li><span>Velikost fondu</span><span>${esc(val(t.fund_size) || '–')}</span></li>
+      <li><span>Velikost fondu</span><span>${esc(size(t.fund_size))}</span></li>
       <li><span>ISIN</span><span class="mono">${esc(val(t.isin))}</span></li>
     </ul>
     <p class="note">${esc(p.match_note_cs || '')}</p>
@@ -215,10 +227,10 @@ function renderPairs() {
       <table>
         <thead><tr><td></td><th scope="col">${esc(p.us.ticker)}</th><th scope="col">${esc(tt)}</th></tr></thead>
         <tbody>
-          ${row('Index', esc(val(p.us.index)), esc(val(t.index)))}
+          ${row('Index', esc(idx(p.us.index)), esc(idx(t.index)))}
           ${row('TER', pct(val(p.us.ter_pct)), pct(val(t.ter_pct)))}
           ${row('Výnosy', esc(dist(p.us.distribution)), esc(dist(t.distribution)))}
-          ${row('Burza', esc(val(p.us.exchange)), 'Xetra (' + esc(val(t.trading_currency_xetra) || 'EUR') + ')')}
+          ${row('Burza', esc(String(val(p.us.exchange)).split('/')[0]), 'Xetra (' + esc(val(t.trading_currency_xetra) || 'EUR') + ')')}
           ${row('Pro drobné investory v EU', 'většinou ne (chybí KID)', 'ano')}
         </tbody>
       </table>
