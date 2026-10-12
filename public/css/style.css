@@ -58,6 +58,8 @@ h1 { font-size: 36px; line-height: 1.02; letter-spacing: -0.045em; font-weight: 
 /* picker */
 .finder { border: 0; margin: 0; padding: 0; min-width: 0; }
 .finder legend { font-weight: 800; font-size: 17px; letter-spacing: -0.02em; padding: 0; margin-bottom: 10px; }
+.finder legend { float: left; width: 100%; }   /* owner's fix: keep the legend inside the desktop card instead of on its top edge */
+.finder legend + .chips { clear: both; }
 .chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .chips label { position: relative; }
 .chips input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
