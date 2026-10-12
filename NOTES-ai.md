@@ -40,3 +40,6 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
   - The fetch tool's paraphrase of písm. u) was wrong: it said the exemption does NOT apply after 3 years. The page uses the law's wording, not the tool's paraphrase.
 - **Wrong number in a status report:** I told the owner "17 commits" when `git log` showed 13. I had estimated instead of counting, and the owner caught it.
   - Lesson: every number in a status message (commits, tests, prices) is taken from command output in the same turn, never from memory.
+- **Export:** the owner typed `/export ai-log/01-setup-and-build.md`. In the desktop Code tab that arrives as a chat message and does nothing, and I checked: `ai-log/` was still empty.
+  - I used the app's Export tool instead and converted its JSONL to Markdown with a script in the repo.
+  - Before committing, I scanned the output for secrets: none found.
