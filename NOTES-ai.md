@@ -96,3 +96,37 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
     - A tested `terPct()` now always shows at least two decimals and keeps extra precision (SPY 0,0945 %).
     - Tests were written first; one of them runs every TER in the dataset.
     - Only TER uses it; the bank fund's "1,66 %" and "až 3 %" are unchanged.
+
+## 2026-10-13: Design round 3 (mockup from the owner's design agent)
+- **Round 2 rejected by the owner:** after looking at it on their phone, the owner rejected the round 2 redesign (white page, system sans, flat rows). Their words: it looks "bare and dated", and the comparison tables were "heavy to read".
+- **Where the new design came from:** the owner's own design agent produced a new mockup, and the owner approved it. It arrived as a folder:
+  - a full stylesheet;
+  - two Onest font subsets;
+  - an `app.js` with only the comparison block changed;
+  - an `index.html` with only theme-color and the font preload changed;
+  - five target PNGs.
+  
+  My job was to port it, not to design it.
+- **How the port was checked before anything was applied:**
+  - Diffed the mockup's `index.html` and `app.js` against ours. Only the stated parts differed: the theme-color/preload, and `renderPairs()` becoming one `<details>` per pair with the TER in the summary. No data, copy or event changed.
+  - Checked the font files: valid woff2, ~14 KB each, and every Czech letter plus „“–…→€ present in both subsets (fontTools).
+  - The subsets carry no license text, so Onest's OFL.txt from google/fonts was added next to them.
+- **Where I deviated from "take it as it is", and why:**
+  - Two colours in the delivered stylesheet fail WCAG AA:
+    - the struck US ticker and its arrow, `#9aa0aa`, 2.63:1 on white;
+    - the return select's border on the dark calculator, `#4a515d`, 2.09:1.
+  
+    The owner's constraints include AA, so only those two values changed, to `#6b7280` (4.83:1) and `#7a818c` (4.26:1), with a comment at the top of the CSS.
+  - The mockup did not cover `/pruvodce`. There, the general `.guide h2` margin pushed every step title below its number circle, so one scoped rule was added: `.steps h2 { margin-top: 0 }`.
+  - The delivered stylesheet and my fixes are separate commits (`69a02ad`, `e501368`), so the diff shows exactly what I changed.
+- **My own slips this round:**
+  - The first screenshot harness used `__shots.html`. The local server redirects `.html` to the clean URL and drops the query, so the iframe got a 404. Fixed by calling `/__shots`. Same lesson as round 1, relearned.
+  - In ad A, my selector `.tile span` also hit the "ano" value, so it rendered grey and small. Caught on the rendered PNG and fixed (`.tile > span`).
+  - One screenshot caught the comparison chevron mid-rotation. A re-shoot after a pause showed the correct "^".
+- **Verification:**
+  - **Screenshots:** both variants, the QQQ result, the comparison and both legal/guide pages at 390 px, taken through an iframe harness in headless Chrome because the browser pane cannot draw while the app window is hidden; plus 1440 px of all four pages. They match the five PNGs, apart from the slightly darker struck tickers (AA).
+  - **Funnel:** with `/api/lead` intercepted in the page and PostHog never loaded on localhost:
+    - In headless Chrome, `page_view → finder_used → result_shown → calculator_used → form_started → form_submitted → guide_viewed` all fired with unchanged names and props (`ad_version=b`, UTM through the redirect), with 0 PostHog requests.
+    - `scroll_50` and `form_viewed` need rendered frames that headless virtual time does not produce, so they were confirmed separately in the pane with real scrolling.
+  - **Deploy:** confirmed by SHA-256 of 8 deployed files, plus etags.
+  - **Lighthouse mobile, live:** 100 performance and 100 accessibility on `?v=a`, `?v=b`, `/pruvodce` and `/soukromi`. CLS 0 / 0.053 / 0.011 / 0.001. The 0.053 on `?v=b` comes from the non-preloaded Onest 500 swapping in above the hero bars; it is left as the mockup specified, since it is within "good".
