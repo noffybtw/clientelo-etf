@@ -144,6 +144,10 @@ To rebuild the insight:
 | `?v=a`, after design review (system sans, no web font) | **100** | 1.0 s | **1.0 s** | 50 ms | 0 | 100 / 100 / 100 |
 | `?v=b`, after design review | **100** | 0.92 s | **0.94 s** | 48 ms | 0 | 100 / 100 / 100 |
 | `/pruvodce`, after design review | **100** | 0.85 s | 0.92 s | 33 ms | 0 | 100 / 100 / 50 (intentional `noindex`) |
+| `?v=a`, design round 3 (Onest) | **100** | | **1.18 s** | 26 ms | 0 | 100 / 100 / 100 |
+| `?v=b`, design round 3 | **100** | | **1.06 s** | 17 ms | 0.053 | 100 / 100 / 100 |
+| `/pruvodce`, design round 3 | **100** | | 0.92 s | 21 ms | 0.011 | 100 / 100 / 50 (intentional `noindex`) |
+| `/soukromi`, design round 3 | **100** | | 1.07 s | 0 ms | 0.001 | 100 / 100 / 50 (intentional `noindex`) |
 
 **Leads:** the Google Sheet owned by the page owner. One row per lead: time, email, consent and consent-text version, picked ETF, ad version, UTM parameters.
 
