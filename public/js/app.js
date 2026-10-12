@@ -50,13 +50,16 @@ $('#chips').addEventListener('change', async (e) => {
   showResult(id);
 });
 
-function sourcesOf(obj) {
+function sourcesOf(obj, sep = ', ') {
   const seen = new Map();
   for (const f of Object.values(obj || {})) {
     if (f && f.source_url && !seen.has(f.source_url)) seen.set(f.source_url, f.source_name);
   }
-  return [...seen].map(([u, n]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join(', ');
+  return [...seen].map(([u, n]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join(sep);
 }
+
+// "VOO: Vanguard, VUAA: Vanguard": each source labelled with its fund
+const labelledSources = (funds) => funds.map(([ticker, obj]) => `${esc(ticker)}: ${sourcesOf(obj, ' + ')}`).join(', ');
 
 function showResult(id) {
   const p = data.pairs.find((x) => x.id === id);
@@ -235,7 +238,7 @@ function renderPairs() {
           ${row('Pro drobné investory v EU', 'většinou ne (chybí KID)', 'ano')}
         </tbody>
       </table>
-      <p class="src">Zdroje: ${sourcesOf(p.us)}; ${sourcesOf(t)}</p>
+      <p class="src">Zdroje: ${labelledSources([[p.us.ticker, p.us], [tt, t]])}</p>
     </article>`;
   }).join('');
 }
