@@ -42,6 +42,7 @@ function load() {
       capture_pageview: false,      // we send our own page_view
       capture_pageleave: false,
       disable_session_recording: true,
+      disable_surveys: true,        // we run no surveys; saves a script download
       person_profiles: 'identified_only',
     });
     posthog.register(superProps);
