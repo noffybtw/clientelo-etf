@@ -148,6 +148,7 @@ To rebuild the insight:
 | `?v=b`, design round 3 | **100** | | **1.06 s** | 17 ms | 0.053 | 100 / 100 / 100 |
 | `/pruvodce`, design round 3 | **100** | | 0.92 s | 21 ms | 0.011 | 100 / 100 / 50 (intentional `noindex`) |
 | `/soukromi`, design round 3 | **100** | | 1.07 s | 0 ms | 0.001 | 100 / 100 / 50 (intentional `noindex`) |
+| `?v=b`, round 3 + Onest 500 preload | **100** | | **1.06 s** | | **0** | 100 / 100 / 100 |
 
 **Leads:** the Google Sheet owned by the page owner. One row per lead: time, email, consent and consent-text version, picked ETF, ad version, UTM parameters.
 
