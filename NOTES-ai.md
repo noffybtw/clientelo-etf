@@ -90,3 +90,9 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
   - Result: all 8 funnel events and `guide_viewed` fired with unchanged names and properties (`ad_version=b`, UTM intact through the redirect), with 0 requests to PostHog.
 - **Deploy check:** confirmed by SHA-256 of 7 deployed files against the local build, plus fresh etags (`age: 2`). No query-string cache-buster, per the lesson above.
 - **Corrected sentence in `ai-log/README.md`:** it claimed the Claude Code CLI was not installed. My Step 0 check only looked for `claude` on this shell's PATH; the owner confirmed it is installed and the session was simply run in the desktop app.
+- **Two leftovers flagged by me after the review, fixed on the owner's request:**
+  - **Ads:** the creatives still used the old serif and green. They were rebuilt in the new look with the same copy and numbers, rendered again at 1080×1350 with headless Chrome, and checked visually. While updating `ad-b.md` I also corrected its bar label to match the creative ("Bankovní akciový fond").
+  - **TER format:** the EQQQ result card showed "0,3 %" next to a note saying "0,30 %". `String(0.3)` drops the trailing zero.
+    - A tested `terPct()` now always shows at least two decimals and keeps extra precision (SPY 0,0945 %).
+    - Tests were written first; one of them runs every TER in the dataset.
+    - Only TER uses it; the bank fund's "1,66 %" and "až 3 %" are unchanged.
