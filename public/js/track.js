@@ -2,7 +2,7 @@
 // after first paint so it never delays the hero. Events fired before the
 // library is ready are queued. Every event carries ad_version + UTM params.
 
-const POSTHOG_KEY = ''; // public project key (phc_...), set once the EU project exists
+const POSTHOG_KEY = 'phc_teSZs9GMdMZGxaJwnCqeBUuQqx56hfMFiTQyLGSPm8de'; // public project key (safe to commit)
 const POSTHOG_HOST = 'https://eu.i.posthog.com';
 const POSTHOG_SRC = 'https://cdn.jsdelivr.net/npm/posthog-js@1.434.15/dist/module.js';
 
