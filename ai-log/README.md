@@ -9,6 +9,7 @@
 | `04-final-cleanup.md` | Pre-submission cleanup: `.claude/` out of the repo, source labels per fund in the comparison cards, live check, and the cache-busting mistake in the deploy checks. Only messages after export 03 are included. |
 | `05-design-review.md` | The owner's design review and its implementation: new visual system, variant B fee bars, chip row, flat form band, contrast and Lighthouse checks, CLS fixes, stubbed funnel check, deploy check by file hash. Only messages after export 04 are included. |
 | `06-ads-and-ter-format.md` | Two leftovers before submission: both ad creatives re-rendered in the new look, TER shown with at least two decimals (tested), live check by file hash. Only messages after export 05 are included. |
+| `07-design-round-3.md` | The owner rejected round 2 and supplied a mockup from their design agent. Contents: porting it (stylesheet, Onest fonts, comparison block), the AA fixes, screenshots against the target PNGs, the stubbed funnel check, the ads in the new look, Lighthouse and the deploy check by file hash. Only messages after export 06 are included. |
 
 **How it was made.** This session ran in the Claude desktop app (Code tab). There, `/export` is not a command; it arrives as a chat message. The Claude Code CLI is installed on this machine, but this session was run in the desktop app, so its transcript was exported with the app's own Export.
 1. The transcript was exported with the app's own **Export** (a zip of JSONL files).
