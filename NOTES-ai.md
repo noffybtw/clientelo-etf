@@ -46,3 +46,12 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
 - **Wrong claim about the Apps Script scope:** my comment in `backend/apps-script.gs` said the OAuth scope was "limited to this spreadsheet". It was not. `SpreadsheetApp` asks for access to all of the owner's spreadsheets unless the script has the `/** @OnlyCurrentDoc */` annotation.
   - The owner caught it in Google's consent screen and added the annotation; the repo file now has it too.
   - Lesson: a security claim in a comment needs the same verification as a number on the page.
+
+## 2026-10-12: Deploy and live verification
+- **Live end-to-end test:** the orchestrator submitted the real form at `?v=b&utm_source=test`.
+  - It hooked `sendBeacon` and a PerformanceObserver to prove that `form_submitted` leaves the page before the redirect: a beacon fires on `pagehide`, 549 ms after the event.
+  - First attempt at the hook missed PostHog's requests: posthog-js keeps its own reference to `fetch`, so wrapping `window.fetch` saw nothing. Resource timing showed the requests instead.
+- **Lighthouse on the first deploy** scored 87, with LCP 3.0 s. My original plan (Google Fonts with `display=swap` plus preconnect) was still render-blocking, about 800 ms through the third-party CSS chain.
+  - Self-hosting the two woff2 subsets fixed it: 98–99, LCP about 1.5 s.
+  - Lesson: "preconnect + swap" is not enough on a 3-second mobile visit; measure it.
+- **Vercel deploys** took about 4 minutes after a push. Vercel does not post deployment statuses to GitHub here, so "is it live" was checked by fetching a file that changed in the commit.

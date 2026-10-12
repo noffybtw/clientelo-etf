@@ -120,6 +120,14 @@ To rebuild the insight:
   - honeypot filled → fake 200, nothing stored
 - **Checked by the owner:** the Sheet row and the events in PostHog (see below).
 
+**Speed** (Lighthouse 12.8.2, mobile emulation, simulated slow 4G, live site, 12 Oct 2026):
+
+| | Performance | FCP | LCP | TBT | CLS | A11y / BP / SEO |
+|---|---|---|---|---|---|---|
+| `?v=a`, first deploy (Google Fonts) | 87 | 3.0 s | 3.0 s | 20 ms | 0 | 100 / 96 / 100 |
+| `?v=a`, self-hosted font + favicon | **98** | 1.0 s | **1.6 s** | 92 ms | 0 | 100 / 100 / 100 |
+| `?v=b`, self-hosted font + favicon | **99** | 0.86 s | **1.45 s** | 59 ms | 0 | 100 / 100 / 100 |
+
 **Leads:** the Google Sheet owned by the page owner. One row per lead: time, email, consent and consent-text version, picked ETF, ad version, UTM parameters.
 
 ## Expected conversion
