@@ -28,7 +28,7 @@ The first ~125 characters (what shows before "…více") carry the hook and the 
 ## Link
 
 ```
-https://LIVE_URL/?v=a&utm_source=facebook&utm_medium=paid_social&utm_campaign=etf_dvojcata_2026_10&utm_content=a_voo_blocked
+https://clientelo-etf.vercel.app/?v=a&utm_source=facebook&utm_medium=paid_social&utm_campaign=etf_dvojcata_2026_10&utm_content=a_voo_blocked
 ```
 On Instagram placements, `utm_source={{site_source_name}}` (Meta dynamic parameter) separates fb and ig.
 

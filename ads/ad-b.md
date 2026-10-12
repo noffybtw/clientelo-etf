@@ -37,7 +37,7 @@
 ## Link
 
 ```
-https://LIVE_URL/?v=b&utm_source=facebook&utm_medium=paid_social&utm_campaign=etf_dvojcata_2026_10&utm_content=b_fees_312k
+https://clientelo-etf.vercel.app/?v=b&utm_source=facebook&utm_medium=paid_social&utm_campaign=etf_dvojcata_2026_10&utm_content=b_fees_312k
 ```
 
 ## Why it should work

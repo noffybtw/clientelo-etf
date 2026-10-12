@@ -1,6 +1,6 @@
 # ETF dvojčata: lead-magnet landing page (Clientelo test task B)
 
-**Live:** _LIVE_URL_ (variant A: `/?v=a`, variant B: `/?v=b`)
+**Live:** https://clientelo-etf.vercel.app (variant A: [`/?v=a`](https://clientelo-etf.vercel.app/?v=a), variant B: [`/?v=b`](https://clientelo-etf.vercel.app/?v=b))
 **Ads:** [`ads/ad-a.md`](ads/ad-a.md), [`ads/ad-b.md`](ads/ad-b.md) (copy, creatives, UTM links)
 **Decisions:** [`DECISIONS.md`](DECISIONS.md) · **AI log:** [`NOTES-ai.md`](NOTES-ai.md) and [`ai-log/`](ai-log/)
 
@@ -101,7 +101,24 @@ The ask is about the *next step* (how to actually buy), not about the data the v
 - **Extra events:** `form_error` and `guide_viewed`.
 - **Ad version:** every event carries `ad_version` (a/b) and all `utm_*` parameters as super-properties.
 
-**Where to see it:** _FUNNEL_LINK_ (PostHog → Product analytics → "Lead funnel", broken down by `ad_version`).
+**Where to see it:** PostHog EU → Product analytics → saved insight **"Lead funnel"** (link: _FUNNEL_LINK_).
+To rebuild the insight:
+1. New insight → Funnels.
+2. Steps: `page_view` → `finder_used` → `result_shown` → `form_viewed` → `form_started` → `form_submitted`.
+3. Breakdown by event property `ad_version`.
+4. Conversion window: 1 hour.
+
+**End-to-end test on the live site (12 Oct 2026)**, done with `?v=b&utm_source=test` and `clientelo-test@example.com`:
+- **Client-side checks:** submit without consent was blocked on the page: error shown, focus moved to the checkbox, no request sent.
+- **Valid submit:** `POST /api/lead` returned `200 {"ok":true}`, with payload `etf: qqq`, `ad_version: b`, `utm_source: test`. The page then redirected to `/pruvodce?etf=qqq`, showing the EQQQ ISIN.
+- **`form_submitted` is not lost on redirect:** it was captured, and PostHog sent its queue by `sendBeacon` on `pagehide`, 549 ms later, during the redirect. This was recorded with a PerformanceObserver and a sendBeacon hook.
+- **Server-side negatives** (curl against the live API):
+  - `GET` → 405
+  - bad email → 400
+  - `consent:false` → 400
+  - `consent:"true"` (a string, not a boolean) → 400
+  - honeypot filled → fake 200, nothing stored
+- **Checked by the owner:** the Sheet row and the events in PostHog (see below).
 
 **Leads:** the Google Sheet owned by the page owner. One row per lead: time, email, consent and consent-text version, picked ETF, ad version, UTM parameters.
 
