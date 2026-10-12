@@ -38,3 +38,5 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
   - Web search gave conflicting paragraph letters for the time test (w vs u).
   - The law text on zakonyprolidi.cz, in the version valid from 1. 8. 2026, says písm. t) for the 100 000 Kč limit and písm. u) for the 3-year test.
   - The fetch tool's paraphrase of písm. u) was wrong: it said the exemption does NOT apply after 3 years. The page uses the law's wording, not the tool's paraphrase.
+- **Wrong number in a status report:** I told the owner "17 commits" when `git log` showed 13. I had estimated instead of counting, and the owner caught it.
+  - Lesson: every number in a status message (commits, tests, prices) is taken from command output in the same turn, never from memory.
