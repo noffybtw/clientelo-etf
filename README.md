@@ -65,13 +65,15 @@ The ask is about the *next step* (how to actually buy), not about the data the v
 | 6 | "Why can't I buy VOO" explainer | Answers the sceptic and names the Fio exception: credibility over hype. |
 | 7 | Second CTA, disclaimer, sources | Catches late converters. The legal text is visible but stays out of the way. |
 
-**Design** (reworked after the owner's design review, see `NOTES-ai.md`):
-- White page and system UI sans.
-- Ink `#111418` and secondary `#4a5360`. One accent, `#0b5cff`, only for interactive elements; `#c2410c` only for the bank-fund cost figure.
-- **Mobile hero:** a heavy 34 px headline, one scrollable row of ticker chips, and, in variant B, the ad's two fee figures as to-scale bars directly under the headline.
-- **Desktop:** two columns.
-- **Avoided:** cards, gradients, icons and motion beyond 150 ms colour transitions.
-- **Contrast:** every text colour passes WCAG AA. The email field border is `#7a838f` (3.8:1), because a field whose border is its only cue needs 3:1.
+**Design** (round 3, approved by the owner; mockup by the owner's design agent, ported here, see `NOTES-ai.md`):
+- **Canvas and cards:** a grey canvas `#f3f4f6` with white cards.
+- **Type:** Onest 500/800, self-hosted, ~14 KB per weight, Czech glyphs checked.
+- **Colour roles:** ink `#0e1116` for actions; green `#087a4b` for money the ETF keeps; coral `#c4321f` for the bank fund's cost.
+- **Hero:** variant B shows the ad's two figures as to-scale bars in a card. Tickers are large tap tiles.
+- **Comparison:** one tap-to-open row per pair, with the TER change in the summary line.
+- **Contrast:** every text colour passes WCAG AA. Two values in the delivered stylesheet failed and were changed (documented at the top of `public/css/style.css`).
+
+**Font credit:** [Onest](https://github.com/googlefonts/onest) by The Onest Project Authors, licensed under the SIL Open Font License 1.1. The license is shipped with the font files in `public/fonts/OFL.txt`.
 
 ## Data and sources
 
