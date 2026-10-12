@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOO u většiny brokerů nekoupíte. Jeho evropské dvojče ano.</title>
+<meta name="description" content="Vyberte americké ETF, které znáte (VOO, SPY, QQQ…), a hned uvidíte evropský fond se stejným indexem, který si z Česka koupíte, a kolik vás stojí poplatky.">
+<meta name="theme-color" content="#f7f5f0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<script type="module" src="/js/app.js"></script>
+</head>
+<body>
+<header class="bar">
+  <span class="logo">ETF<span>dvojčata</span></span>
+  <span class="bar-note">Data k 12. 10. 2026</span>
+</header>
+
+<main>
+  <!-- 1. HERO: repeats the ad promise; text is swapped for ?v=b by app.js -->
+  <section class="hero" id="hero">
+    <p class="eyebrow" data-v-a="Srovnání ETF pro investory z Česka" data-v-b="Kalkulačka poplatků pro investory z Česka">Srovnání ETF pro investory z Česka</p>
+    <h1 data-v-a="VOO, SPY ani QQQ u většiny brokerů nekoupíte. Jejich evropské dvojče ano." data-v-b="Kolik vám z investice za 20&nbsp;let sní poplatky?">VOO, SPY ani QQQ u většiny brokerů nekoupíte. Jejich evropské dvojče ano.</h1>
+    <p class="lead" data-v-a="Vyberte fond, který znáte. Hned uvidíte, co koupit místo něj a kolik ušetříte na poplatcích proti bankovnímu fondu." data-v-b="Vyberte fond, o kterém jste slyšeli. Hned uvidíte jeho evropské dvojče a kolik korun vás stojí poplatky proti bankovnímu fondu.">Vyberte fond, který znáte. Hned uvidíte, co koupit místo něj a kolik ušetříte na poplatcích proti bankovnímu fondu.</p>
+
+    <fieldset class="finder" id="finder">
+      <legend>Který fond znáte?</legend>
+      <div class="chips" id="chips">
+        <label><input type="radio" name="etf" value="voo"><span>VOO</span></label>
+        <label><input type="radio" name="etf" value="spy"><span>SPY</span></label>
+        <label><input type="radio" name="etf" value="qqq"><span>QQQ</span></label>
+        <label><input type="radio" name="etf" value="ivv"><span>IVV</span></label>
+        <label><input type="radio" name="etf" value="vt"><span>VT</span></label>
+        <label><input type="radio" name="etf" value="schd"><span>SCHD</span></label>
+      </div>
+      <p class="hint">Výsledek hned, bez registrace.</p>
+    </fieldset>
+  </section>
+
+  <!-- 2+3. RESULT + CALCULATOR: rendered by app.js after a chip is picked -->
+  <section class="result" id="result" hidden aria-live="polite"></section>
+
+  <!-- 4. FORM: right after the result -->
+  <section class="lead-box" id="lead" hidden>
+    <h2>Teď to jen koupit. Návod máme hotový.</h2>
+    <p class="lead-offer">„Jak koupit první ETF z Česka v 5 krocích“: výběr brokera, převod korun, první nákup na Xetře, pravidelné investování a daně. Otevře se hned po zadání e-mailu.</p>
+    <form id="lead-form" action="/api/lead" method="post" novalidate>
+      <label for="email">Váš e-mail</label>
+      <input id="email" name="email" type="email" required autocomplete="email" inputmode="email"
+             autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send"
+             placeholder="jmeno@email.cz" aria-describedby="email-error">
+      <p class="field-error" id="email-error">Zkontrolujte prosím e-mail, něco v něm chybí.</p>
+      <label class="consent">
+        <input type="checkbox" name="consent" id="consent" required aria-describedby="consent-error">
+        <span>Souhlasím se zpracováním e-mailu a se zasíláním tipů k investování do ETF. Odhlásit se lze kdykoli. <a href="/soukromi">Zásady ochrany údajů</a></span>
+      </label>
+      <p class="field-error" id="consent-error">Bez souhlasu vám nemůžeme nic posílat.</p>
+      <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="etf" id="lead-etf">
+      <button type="submit">Otevřít návod</button>
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>
+  </section>
+
+  <!-- 5. FULL COMPARISON: trust for the visitor who scrolls -->
+  <section class="compare" id="compare">
+    <h2>Všech 6 dvojic na jednom místě</h2>
+    <p class="section-lead">Americký fond vlevo, evropský (UCITS) fond se stejným indexem vpravo. U každého čísla je zdroj.</p>
+    <div id="pairs" class="pairs"></div>
+  </section>
+
+  <!-- 6. EXPLAINER -->
+  <section class="why" id="why">
+    <h2>Proč VOO v aplikaci najdete, ale nekoupíte</h2>
+    <div id="why-body"></div>
+  </section>
+
+  <!-- 7. SECOND CTA -->
+  <section class="cta-end">
+    <p>Fond máte vybraný. Zbývá založit účet a nakoupit poprvé.</p>
+    <a class="btn" href="#lead" id="cta-end">Chci návod v 5 krocích</a>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><strong>Nejde o investiční doporučení.</strong> Stránka srovnává veřejně dostupné údaje o fondech. Investice do akcií může ztratit hodnotu; minulé výnosy nezaručují budoucí. Výpočet poplatků je ilustrace s předpokládaným výnosem, ne prognóza.</p>
+  <p id="sources-foot"></p>
+  <p>Demo projekt pro výběrové řízení. <a href="/soukromi">Ochrana osobních údajů</a></p>
+</footer>
+</body>
+</html>
