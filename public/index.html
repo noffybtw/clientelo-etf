@@ -5,25 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VOO u většiny brokerů nekoupíte. Jeho evropské dvojče ano.</title>
 <meta name="description" content="Vyberte americké ETF, které znáte (VOO, SPY, QQQ…), a hned uvidíte evropský fond se stejným indexem, který si z Česka koupíte, a kolik vás stojí poplatky.">
-<meta name="theme-color" content="#f7f5f0">
-<link rel="preload" href="/fonts/source-serif-4-600-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/source-serif-4-600-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>if (new URLSearchParams(location.search).get('v') === 'b') document.documentElement.dataset.hero = 'b';</script>
 <link rel="stylesheet" href="/css/style.css">
 <script type="module" src="/js/app.js"></script>
 </head>
 <body>
 <header class="bar">
   <span class="logo">ETF<span>dvojčata</span></span>
-  <span class="bar-note">Data k 12. 10. 2026</span>
 </header>
 
 <main>
   <!-- 1. HERO: repeats the ad promise; text is swapped for ?v=b by app.js -->
   <section class="hero" id="hero">
-    <p class="eyebrow" data-v-a="Srovnání ETF pro investory z Česka" data-v-b="Kalkulačka poplatků pro investory z Česka">Srovnání ETF pro investory z Česka</p>
+    <div class="hero-copy">
     <h1 data-v-a="VOO, SPY ani QQQ u většiny brokerů nekoupíte. Jejich evropské dvojče ano." data-v-b="Kolik vám z investice za 20&nbsp;let sní poplatky?">VOO, SPY ani QQQ u většiny brokerů nekoupíte. Jejich evropské dvojče ano.</h1>
+    <p class="meta" data-v-a="Srovnání ETF pro investory z Česka" data-v-b="Kalkulačka poplatků pro investory z Česka">Srovnání ETF pro investory z Česka</p>
+    <!-- variant B only: the ad's two numbers as bars (same data as ads/ad-b.md, guarded by test/copy.test.js) -->
+    <figure class="hero-bars">
+      <figcaption class="hb-title">Poplatky za 20&nbsp;let při 3&nbsp;000&nbsp;Kč měsíčně</figcaption>
+      <div class="hb-row hb-bank">
+        <div class="hb-lbl"><span>Bankovní fond</span><strong>312&nbsp;200&nbsp;Kč</strong></div>
+        <div class="hb-track"><div class="hb-fill" style="width:100%"></div></div>
+      </div>
+      <div class="hb-row hb-etf">
+        <div class="hb-lbl"><span>Indexové ETF</span><strong>12&nbsp;900&nbsp;Kč</strong></div>
+        <div class="hb-track"><div class="hb-fill" style="width:4.13%"></div></div>
+      </div>
+    </figure>
     <p class="lead" data-v-a="Vyberte fond, který znáte. Hned uvidíte, co koupit místo něj a kolik ušetříte na poplatcích proti bankovnímu fondu." data-v-b="Při 3&nbsp;000&nbsp;Kč měsíčně: bankovní akciový fond <strong class=&quot;cost-bank&quot;>312&nbsp;200&nbsp;Kč</strong>, indexové ETF <strong class=&quot;cost-etf&quot;>12&nbsp;900&nbsp;Kč</strong>. Vyberte fond, o kterém jste slyšeli, a spočítejte si svou částku.">Vyberte fond, který znáte. Hned uvidíte, co koupit místo něj a kolik ušetříte na poplatcích proti bankovnímu fondu.</p>
+    </div>
 
     <fieldset class="finder" id="finder">
       <legend>Který fond znáte?</legend>
@@ -95,7 +107,7 @@
 
 <footer class="foot">
   <p><strong>Nejde o investiční doporučení.</strong> Stránka srovnává veřejně dostupné údaje o fondech. Investice do akcií může ztratit hodnotu; minulé výnosy nezaručují budoucí. Výpočet poplatků je ilustrace s předpokládaným výnosem, ne prognóza.</p>
-  <p id="sources-foot"></p>
+  <p id="sources-foot">Data k 12. 10. 2026</p>
   <p>Demo projekt pro výběrové řízení. <a href="/soukromi">Ochrana osobních údajů</a></p>
 </footer>
 </body>
