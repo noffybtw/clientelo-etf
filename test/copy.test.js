@@ -23,3 +23,10 @@ for (const file of ['public/index.html', 'ads/ad-b.md', 'ads/ad-b.html']) {
     assert.ok(text.includes(fmt(c.a.lostToCosts) + ' Kč'), `ETF figure ${fmt(c.a.lostToCosts)} Kč missing`);
   });
 }
+
+test('variant B hero bars are drawn to scale (ETF width = ETF fees / bank fees)', () => {
+  const html = readFileSync('public/index.html', 'utf8');
+  const pct = ((c.a.lostToCosts / c.b.lostToCosts) * 100).toFixed(2);
+  assert.ok(html.includes(`<div class="hb-fill" style="width:${pct}%"></div>`), `ETF bar should be ${pct}% wide`);
+  assert.ok(html.includes('<div class="hb-fill" style="width:100%"></div>'), 'bank bar should be full width');
+});
