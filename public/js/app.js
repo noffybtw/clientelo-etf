@@ -1,6 +1,7 @@
 import { compareCosts } from './calc.js';
 import { track, adVersion, heroVariant } from './track.js';
 import { guideUrl } from './context.js';
+import { terPct } from './format.js';
 
 const $ = (s, el = document) => el.querySelector(s);
 const val = (f) => (f && f.value != null ? f.value : null);
@@ -78,7 +79,7 @@ function showResult(id) {
     ${isProxy ? `<p class="note">${esc(p.us.ticker)} sleduje ${esc(val(p.us.index))}. Evropský fond se stejným indexem neexistuje. Nejbližší dividendová alternativa je níže, ale je to jiný fond.</p>` : ''}
     <ul class="rows">
       <li><span>Index</span><span>${esc(idx(t.index))}</span></li>
-      <li><span>Roční poplatek (TER)</span><span>${pct(val(t.ter_pct))}</span></li>
+      <li><span>Roční poplatek (TER)</span><span>${terPct(val(t.ter_pct))}</span></li>
       <li><span>Výnosy</span><span>${esc(dist(t.distribution))}</span></li>
       <li><span>Kde koupit</span><span>Xetra, v ${esc(val(t.trading_currency_xetra) || 'EUR')}</span></li>
       <li><span>Velikost fondu</span><span>${esc(size(t.fund_size))}</span></li>
@@ -232,7 +233,7 @@ function renderPairs() {
         <thead><tr><td></td><th scope="col">${esc(p.us.ticker)}</th><th scope="col">${esc(tt)}</th></tr></thead>
         <tbody>
           ${row('Index', esc(idx(p.us.index)), esc(idx(t.index)))}
-          ${row('TER', pct(val(p.us.ter_pct)), pct(val(t.ter_pct)))}
+          ${row('TER', terPct(val(p.us.ter_pct)), terPct(val(t.ter_pct)))}
           ${row('Výnosy', esc(dist(p.us.distribution)), esc(dist(t.distribution)))}
           ${row('Burza', esc(String(val(p.us.exchange)).split('/')[0]), 'Xetra (' + esc(val(t.trading_currency_xetra) || 'EUR') + ')')}
           ${row('Pro drobné investory v EU', 'většinou ne (chybí KID)', 'ano')}
