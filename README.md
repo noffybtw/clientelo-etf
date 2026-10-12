@@ -23,7 +23,7 @@ A Czech mobile landing page for people who know VOO, SPY or QQQ from YouTube and
 | Guide shown right after the form | `public/pruvodce.html` |
 | Privacy page | `public/soukromi.html` |
 | Funnel analytics (PostHog EU, cookieless) | `public/js/track.js` |
-| Tests: calculator, validation, endpoint, ad copy ↔ data | `test/` (`npm test`, 22 tests) |
+| Tests: calculator, validation, endpoint, ad copy ↔ data, page context | `test/` (`npm test`, 27 tests) |
 
 ## Audience and offer
 
@@ -99,9 +99,12 @@ The ask is about the *next step* (how to actually buy), not about the data the v
 | `form_submitted` | the server confirmed the lead was stored |
 
 - **Extra events:** `form_error` and `guide_viewed`.
-- **Ad version:** every event carries `ad_version` (a/b) and all `utm_*` parameters as super-properties.
+- **Ad version:** every event carries `ad_version`, `hero_variant` and all `utm_*` parameters as super-properties.
+  - `ad_version` is `a` or `b` from `?v=`, and `none` for direct or organic visits (never a guess).
+  - `hero_variant` records which first screen was actually shown.
+  - Tracking is cookieless, so nothing survives a page load. The redirect to the guide therefore carries `v` and `utm_*` in its URL, which keeps `guide_viewed` attributed (`public/js/context.js`, unit-tested).
 
-**Where to see it:** PostHog EU → Product analytics → saved insight **"Lead funnel"** (link: _FUNNEL_LINK_).
+**Where to see it:** PostHog EU → Product analytics → saved insight **"Lead funnel"** (public link, no login: https://eu.posthog.com/shared/6Z291U1-E8eKKc3bfXXDRZHNOa6jiw).
 To rebuild the insight:
 1. New insight → Funnels.
 2. Steps: `page_view` → `finder_used` → `result_shown` → `form_viewed` → `form_started` → `form_submitted`.
@@ -118,7 +121,9 @@ To rebuild the insight:
   - `consent:false` → 400
   - `consent:"true"` (a string, not a boolean) → 400
   - honeypot filled → fake 200, nothing stored
-- **Checked by the owner:** the Sheet row and the events in PostHog (see below).
+- **Checked by the owner in the Sheet:** exactly one row (`clientelo-test@example.com`, consent TRUE, `qqq`, `b`, `test`), and no honeypot row.
+- **Checked by the owner in PostHog:** all seven funnel events arrived in order with `ad_version=b` and `utm_source=test`.
+- **Bug found by the owner:** `guide_viewed` on `/pruvodce` arrived as `ad_version=a` with no UTM. Fixed as described under "Ad version" above.
 
 **Speed** (Lighthouse 12.8.2, mobile emulation, simulated slow 4G, live site, 12 Oct 2026):
 

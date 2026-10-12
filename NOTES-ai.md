@@ -55,3 +55,11 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
   - Self-hosting the two woff2 subsets fixed it: 98–99, LCP about 1.5 s.
   - Lesson: "preconnect + swap" is not enough on a 3-second mobile visit; measure it.
 - **Vercel deploys** took about 4 minutes after a push. Vercel does not post deployment statuses to GitHub here, so "is it live" was checked by fetching a file that changed in the commit.
+- **Attribution bug, found by the owner in PostHog:** `guide_viewed` on `/pruvodce` arrived with `ad_version=a` and no UTM.
+  - Two mistakes of mine combined. First, with `persistence: 'memory'` the super-properties die on the redirect, and I only verified the funnel up to `form_submitted`, never the next page. Second, `track.js` defaulted any missing `?v=` to `"a"`, so the bug looked like valid data instead of a gap.
+  - Fix: a pure `context.js`, unit-tested first (red for the right reason, then green, 27/27).
+    - `ad_version` is `none` when unknown.
+    - A separate `hero_variant` records the first screen shown.
+    - The guide URL carries `v` and `utm_*` (not `fbclid`).
+  - Verified in the browser with `/api/lead` stubbed in the page, so no extra Sheet row: `guide_viewed` came out with `ad_version=b`, `utm_source=test`, `utm_content=b_fees`.
+  - Lesson: a default that silently fills in a measurement is worse than an explicit "unknown".
