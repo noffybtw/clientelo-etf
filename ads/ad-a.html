@@ -4,33 +4,39 @@
 <meta charset="utf-8">
 <title>Ad A creative 1080x1350</title>
 <style>
-  /* Same visual system as the page: white, system sans, ink + muted, no accent colour needed here. */
+  /* Page look v3: grey canvas, white card, Onest 500/800 (fonts from the site), green = ETF, struck US ticker. */
+  @font-face { font-family: Onest; src: url(../public/fonts/on500.woff2) format("woff2"); font-weight: 400 600; }
+  @font-face { font-family: Onest; src: url(../public/fonts/on800.woff2) format("woff2"); font-weight: 700 900; }
   html, body { margin: 0; width: 1080px; height: 1350px; }
-  body { background: #ffffff; color: #111418; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric: tabular-nums; display: flex; flex-direction: column; padding: 96px 84px; box-sizing: border-box; }
-  h1 { font-weight: 800; font-size: 92px; line-height: 1.04; letter-spacing: -0.025em; margin: 0 0 24px; text-wrap: balance; }
-  .meta { font-size: 32px; color: #4a5360; margin: 0 0 72px; }
-  .swap { display: flex; align-items: baseline; gap: 28px; font-weight: 800; font-size: 104px; letter-spacing: -0.01em; margin-bottom: 28px; }
-  .from { color: #4a5360; }
-  .arrow { color: #4a5360; font-weight: 400; font-size: 80px; }
-  table { width: 100%; border-collapse: collapse; font-size: 38px; }
-  th, td { padding: 26px 0; border-top: 2px solid #e3e7ec; text-align: left; }
-  tr:last-child th, tr:last-child td { border-bottom: 2px solid #e3e7ec; }
-  th { color: #4a5360; font-weight: 400; }
-  td { font-weight: 700; text-align: right; }
-  .no { color: #4a5360; font-weight: 400; }
-  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: baseline; font-size: 32px; color: #4a5360; }
-  .logo { font-weight: 800; color: #111418; font-size: 40px; } .logo span { font-weight: 400; }
+  body { background: #f3f4f6; color: #0e1116; font: 500 32px/1.4 Onest, system-ui, sans-serif; font-variant-numeric: tabular-nums; display: flex; flex-direction: column; padding: 84px 72px; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  .pill { align-self: flex-start; font-size: 30px; font-weight: 600; color: #087a4b; background: #e3f6ec; padding: 10px 26px; border-radius: 99px; margin: 0 0 30px; }
+  h1 { font-weight: 800; font-size: 92px; line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 52px; text-wrap: balance; }
+  .card { background: #fff; border-radius: 44px; padding: 44px 44px 36px; box-shadow: 0 2px 4px rgb(14 17 22 / .05), 0 18px 48px -24px rgb(14 17 22 / .18); }
+  .swap { display: flex; align-items: center; gap: 22px; font-weight: 800; font-size: 104px; letter-spacing: -0.04em; line-height: 1; margin-bottom: 34px; }
+  .from { color: #6b7280; text-decoration: line-through 6px; }
+  .arrow { color: #6b7280; font-weight: 500; font-size: 64px; }
+  .tiles { display: grid; gap: 14px; }
+  .tile { display: flex; justify-content: space-between; align-items: baseline; background: #f3f4f6; border-radius: 26px; padding: 24px 30px; }
+  .tile > span { color: #555c68; font-size: 30px; }
+  .tile b { font-weight: 800; font-size: 36px; }
+  .no { color: #555c68; font-weight: 600; } .yes { color: #087a4b; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-size: 30px; color: #555c68; }
+  .logo { display: inline-flex; align-items: center; gap: 14px; font-weight: 800; letter-spacing: -0.03em; font-size: 40px; color: #0e1116; }
+  .logo::before { content: ""; width: 48px; height: 48px; border-radius: 15px; background: linear-gradient(135deg, #0e1116 50%, #1db474 50%); }
+  .logo span { font-weight: 500; color: #555c68; margin-left: -6px; }
 </style>
 </head>
 <body>
+  <p class="pill">Pro investory z Česka</p>
   <h1>VOO u většiny brokerů nekoupíte. Jeho dvojče ano.</h1>
-  <p class="meta">Pro investory z Česka</p>
-  <div class="swap"><span class="from">VOO</span><span class="arrow">→</span><span class="to">VUAA</span></div>
-  <table>
-    <tr><th>Index</th><td>S&amp;P 500 = S&amp;P 500</td></tr>
-    <tr><th>Koupíte z Česka</th><td><span class="no">většinou ne</span> / ano</td></tr>
-    <tr><th>Roční poplatek</th><td>0,03 % / 0,07 %</td></tr>
-  </table>
+  <div class="card">
+    <div class="swap"><span class="from">VOO</span><span class="arrow">→</span><span class="to">VUAA</span></div>
+    <div class="tiles">
+      <div class="tile"><span>Index</span><b>S&amp;P 500 = S&amp;P 500</b></div>
+      <div class="tile"><span>Koupíte z Česka</span><b><span class="no">většinou ne</span> / <span class="yes">ano</span></b></div>
+      <div class="tile"><span>Roční poplatek</span><b>0,03 % / 0,07 %</b></div>
+    </div>
+  </div>
   <div class="foot"><span class="logo">ETF<span>dvojčata</span></span><span>+ SPY, QQQ, VT a další</span></div>
 </body>
 </html>

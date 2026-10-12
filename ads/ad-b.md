@@ -28,9 +28,9 @@
 
 [`ad-b.png`](ad-b.png), source: [`ad-b.html`](ad-b.html)
 
-**Concept:** two horizontal bars on a white background, in the page's visual system (system sans at 800, no serif). The layout mirrors the `?v=b` hero.
-- A full-width bar in `#c2410c`, "Bankovní akciový fond 312 200 Kč". This orange is used only for the bank-fund figure and its bar.
-- A to-scale ink (`#111418`) bar, 4.13 % of the width, "Indexové ETF 12 900 Kč".
+**Concept:** the page's v3 look and the same layout as the `?v=b` hero: grey canvas, a white card with two rounded bars, Onest 500/800.
+- A full-width coral bar, "Bankovní akciový fond 312 200 Kč" (figure `#c4321f`, bar `#f0563f`). Coral is used only for the bank-fund cost.
+- A to-scale green bar, 4.13 % of the width, "Indexové ETF 12 900 Kč" (figure `#087a4b`, bar `#1db474`).
 - Label under the headline: "Poplatky za 20 let při 3 000 Kč měsíčně"; footnote with the assumption.
 - The visual gap between the bars is the whole message.
 

@@ -20,8 +20,8 @@ The first ~125 characters (what shows before "…více") carry the hook and the 
 
 [`ad-a.png`](ad-a.png), source: [`ad-a.html`](ad-a.html)
 
-**Concept:** the page's visual system: white background, system sans at 800 for the headline, ink `#111418` and muted `#4a5360`, thin rules instead of cards.
-- "VOO" in muted grey, then an arrow, then "VUAA" in ink. No strikethrough and no accent colour.
+**Concept:** the page's v3 look: grey canvas `#f3f4f6`, one white card with a soft shadow, Onest 500/800 (the site's own font files), green pill for the audience line, facts in grey tiles.
+- "VOO" struck through in grey `#6b7280`, then an arrow, then "VUAA" in ink, as on the page. "ano" is in the ETF green `#087a4b`.
 - Three rows: "Index: S&P 500 = S&P 500", "Koupíte z Česka: ne / ano", "Poplatek: 0,03 % / 0,07 %".
 - Showing that the twin is a bit more expensive is deliberate. It is honest, and it pre-empts the comment "but VUAA costs more".
 
