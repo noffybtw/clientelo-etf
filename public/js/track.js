@@ -1,18 +1,18 @@
 // Funnel tracking. PostHog EU, cookieless (persistence: 'memory'), loaded
 // after first paint so it never delays the hero. Events fired before the
-// library is ready are queued. Every event carries ad_version + UTM params.
+// library is ready are queued. Every event carries ad_version, hero_variant
+// and UTM params, read from the URL on every page (see context.js).
+import { pageContext } from './context.js';
 
 const POSTHOG_KEY = 'phc_teSZs9GMdMZGxaJwnCqeBUuQqx56hfMFiTQyLGSPm8de'; // public project key (safe to commit)
 const POSTHOG_HOST = 'https://eu.i.posthog.com';
 const POSTHOG_SRC = 'https://cdn.jsdelivr.net/npm/posthog-js@1.434.15/dist/module.js';
 
-const params = new URLSearchParams(location.search);
-export const adVersion = params.get('v') === 'b' ? 'b' : 'a';
+const ctx = pageContext(location.search);
+export const adVersion = ctx.ad_version;
+export const heroVariant = ctx.hero_variant;
 
-const superProps = { ad_version: adVersion };
-for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']) {
-  if (params.get(k)) superProps[k] = params.get(k);
-}
+const superProps = { ad_version: ctx.ad_version, hero_variant: ctx.hero_variant, ...ctx.utm };
 
 const queue = [];
 const once = new Set();

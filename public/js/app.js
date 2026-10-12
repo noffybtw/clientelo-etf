@@ -1,5 +1,6 @@
 import { compareCosts } from './calc.js';
-import { track, adVersion } from './track.js';
+import { track, adVersion, heroVariant } from './track.js';
+import { guideUrl } from './context.js';
 
 const $ = (s, el = document) => el.querySelector(s);
 const val = (f) => (f && f.value != null ? f.value : null);
@@ -26,7 +27,7 @@ let current = null;
 const calcState = { monthly: 3000, years: 20, returnPct: 7 };
 
 // ---------- hero variant (?v=b) ----------
-if (adVersion === 'b') {
+if (heroVariant === 'b') {
   for (const el of document.querySelectorAll('[data-v-b]')) el.innerHTML = el.dataset.vB;
   document.title = 'Kolik vám z investice sní poplatky? Srovnání ETF a bankovního fondu';
 }
@@ -206,7 +207,7 @@ form.addEventListener('submit', async (e) => {
     if (!res.ok) throw new Error(String(res.status));
     track('form_submitted', { etf: fd.get('etf') });
     status.textContent = 'Hotovo. Otevírám návod…';
-    setTimeout(() => { location.href = `/pruvodce?etf=${encodeURIComponent(fd.get('etf') || '')}`; }, 500);
+    setTimeout(() => { location.href = guideUrl(location.search, fd.get('etf') || ''); }, 500);
   } catch (err) {
     track('form_error', { reason: String(err.message || err) });
     status.textContent = 'Něco se pokazilo. Zkuste to prosím znovu za chvíli.';
