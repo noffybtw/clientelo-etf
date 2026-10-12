@@ -34,6 +34,8 @@ export function track(name, props = {}, { onlyOnce = false } = {}) {
 
 function load() {
   if (!POSTHOG_KEY) { console.info('[track] no PostHog key, events only in window.__events'); return; }
+  // Local test runs must never reach the production project.
+  if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) { console.info('[track] local host, PostHog not loaded; events only in window.__events'); return; }
   import(POSTHOG_SRC).then(({ default: posthog }) => {
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
