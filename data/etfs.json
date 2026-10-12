@@ -1,0 +1,929 @@
+{
+  "retrieved": "2026-10-12",
+  "notes": "All values come from issuer product pages loaded on 2026-10-12. Each twin and the proxy were cross-checked against their justETF profile pages, loaded manually one page at a time. Where the two disagree, the issuer value is kept and the justETF value is in 'note'. 'as_of' dates are converted to ISO format, and as_of is null when the page shows no date for that field. ter_pct is in percent (0.07 = 0.07 %). Fund sizes are in the fund's own currency as the issuer shows them; justETF EUR figures have no date or scope and were not converted. Vanguard UK pages show no as-of date for assets. The QQQ and EQQQ pages were read in a browser because curl got HTTP 406. SPY and SPYL now carry a 'State Street' prefix in their official names. For SCHD, 'twin' is null and 'proxy' is a global dividend fund, not a twin.",
+  "pairs": [
+    {
+      "id": "voo",
+      "us": {
+        "ticker": "VOO",
+        "name": {
+          "value": "Vanguard S&P 500 ETF",
+          "as_of": null,
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "issuer": "Vanguard",
+        "exchange": {
+          "value": "NYSE Arca",
+          "as_of": null,
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "From page text: the fund's ETF Shares 'are listed for trading on NYSE Arca'."
+        },
+        "index": {
+          "value": "S&P 500 Index",
+          "as_of": null,
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "ter_pct": {
+          "value": 0.03,
+          "as_of": "2026-04-28",
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Expense ratio 0.03%, expenseRatioAsOfDate 04/28/2026."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": "2026-08-31",
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "distributionSchedule: Quarterly (distribution block as of 08/31/2026)."
+        }
+      },
+      "twin": {
+        "ticker": "VUAA",
+        "xetra_ticker": {
+          "value": "VUAA",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Vanguard lists 'EUR - Deutsche Boerse' with exchange ticker VUAA (Bloomberg VUAA GY, Reuters VUA1.DE); the page says 'Deutsche Boerse', not literally 'Xetra'. justETF XETRA row: VUAA, EUR - matches."
+        },
+        "name": {
+          "value": "Vanguard S&P 500 UCITS ETF (USD) Accumulating",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Page title: 'S&P 500 UCITS ETF (USD) Accumulating | Vanguard UK Professional' (product ID 9694; ISIN IE00BFMXXD54 on the page)."
+        },
+        "isin": {
+          "value": "IE00BFMXXD54",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "issuer": {
+          "value": "Vanguard",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Legal entity Vanguard Funds PLC; investment manager Vanguard Global Advisers, LLC."
+        },
+        "index": {
+          "value": "S&P 500 Net Total Return",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Benchmark field; index ticker SPTR500N; objective text: Standard and Poor's 500 Index. justETF: 'S&P 500' - consistent."
+        },
+        "ter_pct": {
+          "value": 0.07,
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "OCF/TER 0.07%, no date shown. justETF cross-check: 0.07% p.a. - matches."
+        },
+        "distribution": {
+          "value": "Accumulating",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Page: all dividends are reinvested for the Accumulation shares. justETF: Accumulating - matches."
+        },
+        "domicile": {
+          "value": "Ireland",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "justETF: Ireland - matches."
+        },
+        "fund_currency": {
+          "value": "USD",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Base currency USD. justETF: USD - matches."
+        },
+        "trading_currency_xetra": {
+          "value": "EUR",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Listing 'EUR - Deutsche Boerse'. justETF XETRA: EUR - matches."
+        },
+        "fund_size": {
+          "value": "USD 88.97 bn (fund total; this share class USD 36.34 bn)",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Page shows 'Total Assets US$88.97 B' and 'Share Class Assets US$36.34 B' with no as-of date. justETF shows 'Fund size EUR 33,446 m' (no date, scope not stated; magnitude corresponds to the share class, not the fund total)."
+        },
+        "replication": {
+          "value": "Physical (full replication; sampling where full replication is not practicable)",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Investment method: Physical. Objective text: invests in all or substantially all index constituents; uses sampling where full replication is not practicable. justETF: Physical (Full replication)."
+        },
+        "inception": {
+          "value": "2019-05-14",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Share class inception 14 May 2019 (listing date 16 May 2019). justETF: 14 May 2019 - matches."
+        }
+      },
+      "match": "same_index",
+      "match_note": "Both track the S&P 500. VOO distributes quarterly; VUAA is the accumulating USD share class of the Irish UCITS fund.",
+      "match_note_cs": "Stejný index S&P 500. VOO dividendy vyplácí, VUAA je reinvestuje."
+    },
+    {
+      "id": "ivv",
+      "us": {
+        "ticker": "IVV",
+        "name": {
+          "value": "iShares Core S&P 500 ETF",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true
+        },
+        "issuer": "iShares",
+        "exchange": {
+          "value": "NYSE Arca",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true
+        },
+        "index": {
+          "value": "S&P 500 Index",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true
+        },
+        "ter_pct": {
+          "value": 0.03,
+          "as_of": null,
+          "source_url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "'Expense Ratio: 0.03' ('Fees as stated in the prospectus'); no as-of date shown."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Distribution Frequency: Quarterly."
+        }
+      },
+      "twin": {
+        "ticker": "CSPX",
+        "xetra_ticker": {
+          "value": "SXR8",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Listings table: Deutsche Boerse Xetra, ticker SXR8, currency EUR (Bloomberg SXR8 GY). justETF XETRA: SXR8, EUR - matches."
+        },
+        "name": {
+          "value": "iShares Core S&P 500 UCITS ETF (Acc)",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Page fund name 'iShares Core S&P 500 UCITS ETF' with Use of Income: Accumulating, ticker CSPX. justETF: 'iShares Core S&P 500 UCITS ETF USD (Acc)'."
+        },
+        "isin": {
+          "value": "IE00B5BMR087",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true
+        },
+        "issuer": {
+          "value": "iShares (BlackRock)",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Issuing company iShares VII plc; fund manager BlackRock Asset Management Ireland Limited."
+        },
+        "index": {
+          "value": "S&P 500 Index",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "justETF: S&P 500 - matches."
+        },
+        "ter_pct": {
+          "value": 0.07,
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Total Expense Ratio 0.07%, no date shown. justETF: 0.07% p.a. - matches."
+        },
+        "distribution": {
+          "value": "Accumulating",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "justETF: Accumulating - matches."
+        },
+        "domicile": {
+          "value": "Ireland",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "justETF: Ireland - matches."
+        },
+        "fund_currency": {
+          "value": "USD",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Base Currency USD; share class currency USD. justETF: USD - matches."
+        },
+        "trading_currency_xetra": {
+          "value": "EUR",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true
+        },
+        "fund_size": {
+          "value": "USD 161.5 bn (fund total; this share class USD 158.2 bn)",
+          "as_of": "2026-10-09",
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Net Assets of Fund USD 161,512,817,847; Net Assets (share class) USD 158,244,488,930; both as of 09/Oct/2026. justETF shows EUR 141,214 m (no date or scope stated)."
+        },
+        "replication": {
+          "value": "Physical Replication",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Methodology: Physical Replication; Product Structure: Physical. justETF: Physical (Full replication) - matches."
+        },
+        "inception": {
+          "value": "2010-05-19",
+          "as_of": null,
+          "source_url": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund?switchLocale=y&siteEntryPassthrough=true",
+          "source_name": "iShares",
+          "verified": true,
+          "note": "Share class Inception Date 19/May/2010; Fund Launch Date 18/May/2010. justETF: 19 May 2010 - matches the share class date."
+        }
+      },
+      "match": "same_index",
+      "match_note": "Both track the S&P 500. IVV distributes quarterly; CSPX accumulates. On Xetra the same share class trades as SXR8 (EUR).",
+      "match_note_cs": "Stejný index S&P 500. Na Xetře se tentýž fond obchoduje jako SXR8, v Londýně jako CSPX. Dividendy reinvestuje."
+    },
+    {
+      "id": "spy",
+      "us": {
+        "ticker": "SPY",
+        "name": {
+          "value": "State Street SPDR S&P 500 ETF Trust",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "The fund now carries a 'State Street' prefix (previously SPDR S&P 500 ETF Trust). The old URL ...spdr-sp-500-etf-trust-spy redirected to this one."
+        },
+        "issuer": "SSGA",
+        "exchange": {
+          "value": "NYSE Arca",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Listing Information as of Oct 12 2026: Exchange NYSE ARCA, trading currency USD."
+        },
+        "index": {
+          "value": "S&P 500 Index",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+          "source_name": "SSGA",
+          "verified": true
+        },
+        "ter_pct": {
+          "value": 0.0945,
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Gross Expense Ratio 0.0945% (Fund Information block as of Oct 12 2026)."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Distribution Frequency: Quarterly."
+        }
+      },
+      "twin": {
+        "ticker": "SPYL",
+        "xetra_ticker": {
+          "value": "SPYL",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Listing table as of 12 Oct 2026: 'Deutsche Boerse (Primary)', EUR, ticker SPYL (SPYL GY / SPYL.DE). justETF XETRA: SPYL, EUR - matches."
+        },
+        "name": {
+          "value": "State Street SPDR S&P 500 UCITS ETF (Acc)",
+          "as_of": null,
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Page title 'SPYL : State Street SPDR S&P 500 UCITS ETF (Acc)'. It now carries a 'State Street' prefix, unlike the name in the brief. justETF: 'State Street SPDR S&P 500 UCITS ETF USD Unhedged (Acc)'."
+        },
+        "isin": {
+          "value": "IE000XZSV718",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true
+        },
+        "issuer": {
+          "value": "State Street Global Advisors (SPDR)",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Fund umbrella SSGA SPDR ETFs Europe I plc; investment manager State Street Global Advisors Europe Limited."
+        },
+        "index": {
+          "value": "S&P 500 Index",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "justETF: S&P 500 - matches."
+        },
+        "ter_pct": {
+          "value": 0.03,
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "TER '0,03%' (the page uses a decimal comma). justETF: 0.03% p.a. - matches."
+        },
+        "distribution": {
+          "value": "Accumulating",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Income Treatment: Accumulation. justETF: Accumulating - matches."
+        },
+        "domicile": {
+          "value": "Ireland",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "justETF: Ireland - matches."
+        },
+        "fund_currency": {
+          "value": "USD",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "The page shows 'Share Class Currency USD' and has no separate fund base-currency field. justETF fund currency: USD."
+        },
+        "trading_currency_xetra": {
+          "value": "EUR",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true
+        },
+        "fund_size": {
+          "value": "USD 45.08 bn (fund total, labelled 'Total Fund Assets')",
+          "as_of": "2026-10-09",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Page: 'Total Fund Assets USD $45 080,82 M as of 09 Oct 2026'. Share-class assets are not shown. justETF shows 'Fund size EUR 17,631 m' (no date or scope). The gap is large and unresolved: justETF probably shows only SPYL's share-class assets, while SSGA's figure covers the whole fund. Orchestrator check 2026-10-12: justETF shows SPY5 (Dist, IE00B6YX5C33) EUR 19,436 m and SPYL (Acc) EUR 17,631 m as separate share classes; together ~EUR 37 bn, consistent with SSGA USD 45.08 bn for the whole fund."
+        },
+        "replication": {
+          "value": "Replicated",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Replication Method: Replicated. justETF: Physical (Full replication)."
+        },
+        "inception": {
+          "value": "2023-10-31",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.ssga.com/de/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+          "source_name": "SSGA",
+          "verified": true,
+          "note": "Inception Date 31 Oct 2023 (Deutsche Boerse listing 01 Nov 2023). justETF: 31 October 2023 - matches."
+        }
+      },
+      "match": "same_index",
+      "match_note": "Both track the S&P 500. SPY is a distributing unit investment trust; SPYL is the accumulating UCITS class, whose primary listing is Deutsche Boerse.",
+      "match_note_cs": "Stejný index S&P 500 a nejnižší roční poplatek ze všech evropských fondů v tomto srovnání (0,03 %). Dividendy reinvestuje."
+    },
+    {
+      "id": "qqq",
+      "us": {
+        "ticker": "QQQ",
+        "name": {
+          "value": "Invesco QQQ Trust, Series 1",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html",
+          "source_name": "Invesco",
+          "verified": true
+        },
+        "issuer": "Invesco",
+        "exchange": {
+          "value": "Nasdaq/NMS (Global Market)",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Exchange field under Fund details. QQQ trades on Nasdaq, not NYSE."
+        },
+        "index": {
+          "value": "Nasdaq-100 Index",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Bloomberg index ticker XNDX; index provider Nasdaq, Inc."
+        },
+        "ter_pct": {
+          "value": 0.18,
+          "as_of": null,
+          "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Total expense ratio 0.18% and net expense ratio 0.18%; no as-of date. The page was read in a browser because curl got HTTP 406."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "'Distribution frequency: Quarterly'."
+        }
+      },
+      "twin": {
+        "ticker": "EQQQ",
+        "xetra_ticker": {
+          "value": "EQQQ",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Exchange information as of 12-Oct-26: Deutsche Boerse (Xetra), trading currency EUR, ticker EQQQ (EQQQ GY / EQQQ.DE). justETF XETRA: EQQQ, EUR - matches."
+        },
+        "name": {
+          "value": "Invesco EQQQ Nasdaq-100 UCITS ETF Dist",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true
+        },
+        "isin": {
+          "value": "IE0032077012",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true
+        },
+        "issuer": {
+          "value": "Invesco",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Issuer Invesco Markets III plc; manager Invesco Investment Management Limited."
+        },
+        "index": {
+          "value": "NASDAQ-100 Index",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Product description: aims to provide the net total return performance of the NASDAQ-100 Index. The performance chart benchmark is 'NASDAQ-100 Notional NTR Index'. justETF: Nasdaq 100 - matches."
+        },
+        "ter_pct": {
+          "value": 0.3,
+          "as_of": "2026-10-09",
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "TER/OCF 0.30% in the page header (as of 09-Oct-26); Key information shows 0.300%. justETF: 0.30% p.a. - matches."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Use of income: Distributing; Dividend frequency: Quarterly. justETF: Distributing, Quarterly - matches."
+        },
+        "domicile": {
+          "value": "Ireland",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "justETF: Ireland - matches."
+        },
+        "fund_currency": {
+          "value": "USD",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Share Class Currency USD; distribution currency USD. justETF fund currency: USD."
+        },
+        "trading_currency_xetra": {
+          "value": "EUR",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true
+        },
+        "fund_size": {
+          "value": "USD 22.18 bn (labelled 'AUM'; appears to be the fund total incl. other share classes)",
+          "as_of": "2026-10-09",
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Page: 'AUM (as of 09-Oct-26) $22,183,280,701'; scope not labelled. The same page shows 19,471,776 shares outstanding and a NAV of $754.88, about USD 14.7 bn for this Dist class, so the AUM figure appears to be fund-level. Umbrella AUM: $25.9 bn. justETF shows EUR 13,117 m (no date or scope), consistent with the share class level."
+        },
+        "replication": {
+          "value": "Physical (full physical replication)",
+          "as_of": null,
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Replication method: Physical. The description calls the method full physical replication. justETF: Physical (Full replication) - matches."
+        },
+        "inception": {
+          "value": "2002-12-02",
+          "as_of": "2026-10-12",
+          "source_url": "https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html",
+          "source_name": "Invesco",
+          "verified": true,
+          "note": "Launch date 02-Dec-02. justETF: 2 December 2002 - matches."
+        }
+      },
+      "match": "same_index",
+      "match_note": "Both track the Nasdaq-100. EQQQ is the distributing (quarterly) USD class, and its TER (0.30%) is well above QQQ's (0.18%).",
+      "match_note_cs": "Stejný index Nasdaq-100. Evropská verze má vyšší poplatek (0,30 % proti 0,18 %) a dividendy vyplácí. QQQ se obchoduje na burze Nasdaq, ne na NYSE."
+    },
+    {
+      "id": "vt",
+      "us": {
+        "ticker": "VT",
+        "name": {
+          "value": "Vanguard Total World Stock ETF",
+          "as_of": null,
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "issuer": "Vanguard",
+        "exchange": {
+          "value": "NYSE Arca",
+          "as_of": null,
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "From page text: the fund's ETF Shares 'are listed for trading on NYSE Arca'."
+        },
+        "index": {
+          "value": "FTSE Global All Cap Index",
+          "as_of": null,
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "The performance benchmark is shown as 'Spliced Total World Stock Index': the FTSE All-World Index through Dec 18, 2011, then the FTSE Global All Cap Index."
+        },
+        "ter_pct": {
+          "value": 0.06,
+          "as_of": "2026-02-27",
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Expense ratio 0.06%, expenseRatioAsOfDate 02/27/2026."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": "2026-08-31",
+          "source_url": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "distributionSchedule: Quarterly (as of 08/31/2026)."
+        }
+      },
+      "twin": {
+        "ticker": "VWCE",
+        "xetra_ticker": {
+          "value": "VWCE",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "'EUR - Deutsche Boerse', exchange ticker VWCE (VWCE GY / VWCE.DE). justETF XETRA: VWCE, EUR - matches."
+        },
+        "name": {
+          "value": "Vanguard FTSE All-World UCITS ETF (USD) Accumulating",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Page title 'FTSE All-World UCITS ETF (USD) Accumulating | Vanguard UK Professional' (product ID 9679; ISIN IE00BK5BQT80 on the page)."
+        },
+        "isin": {
+          "value": "IE00BK5BQT80",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "issuer": {
+          "value": "Vanguard",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Legal entity Vanguard Funds PLC."
+        },
+        "index": {
+          "value": "FTSE All-World Index",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Index ticker TAWNT01U. justETF: FTSE All-World - matches."
+        },
+        "ter_pct": {
+          "value": 0.14,
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "OCF/TER 0.14%, no date shown. justETF: 0.14% p.a. - matches."
+        },
+        "distribution": {
+          "value": "Accumulating",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "justETF: Accumulating - matches."
+        },
+        "domicile": {
+          "value": "Ireland",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "justETF: Ireland - matches."
+        },
+        "fund_currency": {
+          "value": "USD",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Base currency USD. justETF: USD - matches."
+        },
+        "trading_currency_xetra": {
+          "value": "EUR",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "fund_size": {
+          "value": "USD 87.29 bn (fund total; this share class USD 60.19 bn)",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "'Total Assets US$87.29 B' and 'Share Class Assets US$60.19 B', no as-of date shown. justETF shows EUR 55,367 m (no date or scope; magnitude corresponds to the share class)."
+        },
+        "replication": {
+          "value": "Physical (representative sampling)",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Investment method: Physical. Objective: 'investing in a representative sample of Index constituent securities'. justETF: Physical (Optimized sampling) - matches."
+        },
+        "inception": {
+          "value": "2019-07-23",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Share class inception 23 Jul 2019 (listing 25 Jul 2019). justETF: 23 July 2019 - matches."
+        }
+      },
+      "match": "near_index",
+      "match_note": "VT tracks the FTSE Global All Cap, which includes small caps. VWCE tracks the FTSE All-World, which covers large and mid caps only. Close, but not identical.",
+      "match_note_cs": "Podobný, ale ne stejný index: VT obsahuje i malé firmy, VWCE jen velké a střední. Dividendy reinvestuje."
+    },
+    {
+      "id": "schd",
+      "us": {
+        "ticker": "SCHD",
+        "name": {
+          "value": "Schwab U.S. Dividend Equity ETF",
+          "as_of": null,
+          "source_url": "https://www.schwabassetmanagement.com/products/schd",
+          "source_name": "Schwab",
+          "verified": true
+        },
+        "issuer": "Schwab",
+        "exchange": {
+          "value": "NYSE Arca",
+          "as_of": null,
+          "source_url": "https://www.schwabassetmanagement.com/products/schd",
+          "source_name": "Schwab",
+          "verified": true,
+          "note": "Page: 'Exchange NYSE Arca, Inc.'"
+        },
+        "index": {
+          "value": "Dow Jones U.S. Dividend 100 Index",
+          "as_of": null,
+          "source_url": "https://www.schwabassetmanagement.com/products/schd",
+          "source_name": "Schwab",
+          "verified": true
+        },
+        "ter_pct": {
+          "value": 0.06,
+          "as_of": null,
+          "source_url": "https://www.schwabassetmanagement.com/products/schd",
+          "source_name": "Schwab",
+          "verified": true,
+          "note": "Total Expense Ratio 0.060%, no date shown."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": null,
+          "source_url": "https://www.schwabassetmanagement.com/products/schd",
+          "source_name": "Schwab",
+          "verified": true,
+          "note": "The page has no explicit frequency label. Quarterly is read from the distribution table on the page (ex-dates 12/10/2025, 03/25/2026, 06/24/2026, 09/23/2026)."
+        }
+      },
+      "twin": null,
+      "proxy": {
+        "ticker": "VHYL",
+        "is_proxy": true,
+        "proxy_note": "NOT a twin: different index (FTSE All-World High Dividend Yield, global) from SCHD (Dow Jones U.S. Dividend 100, US only). Shown only as a UCITS dividend-strategy alternative.",
+        "xetra_ticker": {
+          "value": "VGWD",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "On Deutsche Boerse this fund trades as VGWD, not VHYL ('EUR - Deutsche Boerse', VGWD GY / VGWD.DE). justETF XETRA: VGWD, EUR - matches."
+        },
+        "name": {
+          "value": "Vanguard FTSE All-World High Dividend Yield UCITS ETF (USD) Distributing",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Page title 'FTSE All-World High Dividend Yield UCITS ETF (USD) Distributing | Vanguard UK Professional' (product ID 9506; ISIN IE00B8GKDB10 on the page). Product ID 9510 loaded a different fund (MPF Portfolio I) and was discarded."
+        },
+        "isin": {
+          "value": "IE00B8GKDB10",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "issuer": {
+          "value": "Vanguard",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Legal entity Vanguard Funds PLC."
+        },
+        "index": {
+          "value": "FTSE All-World High Dividend Yield Index",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Index ticker TAWHDY01. justETF: FTSE All-World High Dividend Yield - matches."
+        },
+        "ter_pct": {
+          "value": 0.29,
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "OCF/TER 0.29%, no date shown. justETF: 0.29% p.a. - matches."
+        },
+        "distribution": {
+          "value": "Distributing (quarterly)",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Dividend schedule / distribution frequency: Quarterly. justETF: Distributing, Quarterly - matches."
+        },
+        "domicile": {
+          "value": "Ireland",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "justETF: Ireland - matches."
+        },
+        "fund_currency": {
+          "value": "USD",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Base currency USD. justETF: USD - matches."
+        },
+        "trading_currency_xetra": {
+          "value": "EUR",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true
+        },
+        "fund_size": {
+          "value": "USD 14.61 bn (fund total; this share class USD 11.18 bn)",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "'Total Assets US$14.61 B' and 'Share Class Assets US$11.18 B', no as-of date shown. justETF shows EUR 9,996 m (no date or scope)."
+        },
+        "replication": {
+          "value": "Physical (representative sampling)",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Investment method: Physical. Objective: invests in a representative sample of index constituents. justETF: Physical (Optimized sampling) - matches."
+        },
+        "inception": {
+          "value": "2013-05-21",
+          "as_of": null,
+          "source_url": "https://www.vanguard.co.uk/professional/product/etf/equity/9506/ftse-all-world-high-dividend-yield-ucits-etf-usd-distributing",
+          "source_name": "Vanguard",
+          "verified": true,
+          "note": "Share class inception 21 May 2013 (listing 22 May 2013). justETF: 21 May 2013 - matches."
+        }
+      },
+      "match": "no_twin",
+      "match_note": "No UCITS ETF tracks the Dow Jones U.S. Dividend 100. VHYL is only a global high-dividend proxy, with a different index, region and TER.",
+      "match_note_cs": "Evropský fond se stejným indexem jako SCHD (Dow Jones U.S. Dividend 100) neexistuje. VHYL je jen podobně zaměřená alternativa: dividendové akcie z celého světa, jiný index a vyšší poplatek."
+    }
+  ]
+}
