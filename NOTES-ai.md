@@ -130,3 +130,10 @@ A running log, newest at the bottom. What the agents were asked, how their outpu
     - `scroll_50` and `form_viewed` need rendered frames that headless virtual time does not produce, so they were confirmed separately in the pane with real scrolling.
   - **Deploy:** confirmed by SHA-256 of 8 deployed files, plus etags.
   - **Lighthouse mobile, live:** 100 performance and 100 accessibility on `?v=a`, `?v=b`, `/pruvodce` and `/soukromi`. CLS 0 / 0.053 / 0.011 / 0.001. The 0.053 on `?v=b` comes from the non-preloaded Onest 500 swapping in above the hero bars; it is left as the mockup specified, since it is within "good".
+- **Two last fixes from the owner (2026-10-13):**
+  - **Legend on the card edge:** on desktop, the picker's `<legend>` sat on the white card's top edge, half outside. That is how a fieldset draws its legend, and it was already like that in the mockup and in my round 3 screenshots.
+    - I noticed it in my own screenshot, wrote it off as "matches the target", and kept it instead of flagging it. The owner found it and supplied the fix: `float: left; width: 100%` on the legend, `clear: both` on the chips.
+    - Measured before/after in 390 px and 1440 px iframes. At 390 nothing moved (identical boxes). At 1440 the legend went from 0 px to 28 px below the card's top edge, which equals the card padding.
+    - My first "is it inside?" check was wrong: a fieldset's box includes its legend, so it reported "inside" before the fix too. I switched to the offset measurement.
+  - **Preload `on500.woff2`:** added alongside on800 on all three pages. Variant B's CLS went from 0.053 to 0 (Lighthouse, live). `?v=a` 99, `?v=b` 100.
+  - **Deploy:** confirmed by SHA-256 of 4 files plus fresh etags.
